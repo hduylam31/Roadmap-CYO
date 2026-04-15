@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYO Project — PO Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0C0F14;
+  --surface: #141820;
+  --surface-2: #1A1F2B;
+  --border: #2A3040;
+  --text: #E4E7ED;
+  --text-muted: #8891A5;
+  --accent: #FCAF17;
+  --accent-dim: rgba(252,175,23,0.12);
+  --accent-glow: rgba(252,175,23,0.25);
+  --blue: #4A9EFF;
+  --blue-dim: rgba(74,158,255,0.12);
+  --green: #34D399;
+  --green-dim: rgba(52,211,153,0.12);
+  --red: #F87171;
+  --red-dim: rgba(248,113,113,0.12);
+  --purple: #A78BFA;
+  --purple-dim: rgba(167,139,250,0.12);
+  --mono: 'Space Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === NOISE OVERLAY === */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* === HERO === */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.1s forwards;
+}
+
+.hero h1 .highlight {
+  color: var(--accent);
+  position: relative;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.2s forwards;
+}
+
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.hero-meta-item .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* === CONTAINER === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* === SECTION === */
+section {
+  padding: 80px 0;
+}
+
+.section-header {
+  margin-bottom: 48px;
+}
+
+.section-number {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  max-width: 600px;
+}
+
+/* === OBJECTIVE CARDS === */
+.obj-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.obj-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.obj-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.obj-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.obj-card.obj-1::before { background: linear-gradient(90deg, var(--accent), var(--accent) 60%, transparent); }
+.obj-card.obj-2::before { background: linear-gradient(90deg, var(--blue), var(--blue) 60%, transparent); }
+.obj-card.obj-3::before { background: linear-gradient(90deg, var(--green), var(--green) 60%, transparent); }
+
+.obj-number {
+  font-family: var(--mono);
+  font-size: 48px;
+  font-weight: 700;
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  opacity: 0.06;
+}
+
+.obj-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.obj-1 .obj-tag { background: var(--accent-dim); color: var(--accent); }
+.obj-2 .obj-tag { background: var(--blue-dim); color: var(--blue); }
+.obj-3 .obj-tag { background: var(--green-dim); color: var(--green); }
+
+.obj-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.obj-desc {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.obj-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.metric-item {
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+}
+
+.metric-item .label {
+  color: var(--text-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.metric-item .value {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.obj-deadline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.obj-warning {
+  background: var(--red-dim);
+  border-left: 3px solid var(--red);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--red);
+  line-height: 1.6;
+}
+
+/* === KEYWORD HIGHLIGHT === */
+.kw {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.kw-blue {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.kw-green {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.kw-purple {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+/* === TIMELINE === */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.phase-block {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.phase-dot {
+  position: absolute;
+  left: -40px;
+  top: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.phase-1 .phase-dot { background: var(--accent-dim); color: var(--accent); border: 2px solid var(--accent); }
+.phase-2 .phase-dot { background: var(--blue-dim); color: var(--blue); border: 2px solid var(--blue); }
+.phase-3 .phase-dot { background: var(--green-dim); color: var(--green); border: 2px solid var(--green); }
+.phase-4 .phase-dot { background: var(--purple-dim); color: var(--purple); border: 2px solid var(--purple); }
+
+.phase-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.phase-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.phase-dates {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.phase-desc {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.task-row:hover {
+  border-color: var(--accent);
+}
+
+.task-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.tag-research { background: var(--accent-dim); color: var(--accent); }
+.tag-build { background: var(--blue-dim); color: var(--blue); }
+.tag-metrics { background: var(--green-dim); color: var(--green); }
+.tag-metadata { background: var(--purple-dim); color: var(--purple); }
+.tag-governance { background: rgba(251,191,36,0.12); color: #FBbf24; }
+.tag-backlog { background: rgba(156,163,175,0.12); color: #9CA3AF; }
+.tag-domain { background: rgba(244,114,182,0.12); color: #F472B6; }
+
+.task-content {
+  line-height: 1.5;
+}
+
+.task-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.task-detail {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.task-date {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* === GLOSSARY === */
+.glossary-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.glossary-section-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 20px 0 8px;
+  border-bottom: 1px solid var(--border);
+  margin-top: 16px;
+}
+
+.glossary-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.2s;
+}
+
+.glossary-item:hover {
+  border-color: var(--accent);
+}
+
+.glossary-term {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.glossary-abbr {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.glossary-def {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.glossary-example {
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text);
+  border-left: 2px solid var(--accent);
+}
+
+/* === NAV TABS === */
+.nav-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(12,15,20,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  display: flex;
+  gap: 0;
+}
+
+.nav-tab {
+  padding: 16px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.nav-tab:hover, .nav-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* === RISK SECTION === */
+.risk-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.risk-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.risk-card:hover {
+  border-color: var(--red);
+}
+
+.risk-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.risk-card.risk-critical::before { background: linear-gradient(90deg, var(--red), var(--red) 60%, transparent); }
+.risk-card.risk-medium::before { background: linear-gradient(90deg, var(--accent), var(--accent) 60%, transparent); }
+.risk-card.risk-low::before { background: linear-gradient(90deg, var(--blue), var(--blue) 60%, transparent); }
+
+.risk-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.risk-severity {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.risk-critical .risk-severity { background: var(--red-dim); color: var(--red); }
+.risk-medium .risk-severity { background: var(--accent-dim); color: var(--accent); }
+.risk-low .risk-severity { background: var(--blue-dim); color: var(--blue); }
+
+.risk-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.risk-body {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.risk-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.risk-box {
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.risk-box.bad {
+  background: var(--red-dim);
+  border: 1px solid rgba(248,113,113,0.2);
+}
+
+.risk-box.good {
+  background: var(--green-dim);
+  border: 1px solid rgba(52,211,153,0.2);
+}
+
+.risk-box-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.risk-box.bad .risk-box-label { color: var(--red); }
+.risk-box.good .risk-box-label { color: var(--green); }
+
+.risk-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.risk-box li {
+  padding: 4px 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.risk-box.bad li::before { content: '✗'; position: absolute; left: 0; color: var(--red); }
+.risk-box.good li::before { content: '✓'; position: absolute; left: 0; color: var(--green); }
+
+.risk-solution {
+  background: var(--surface-2);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-top: 16px;
+}
+
+.risk-solution-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.risk-solution-content {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.risk-flow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.risk-flow-step {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.risk-flow-step.highlight-step {
+  background: var(--green-dim);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.risk-flow-arrow {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.risk-cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 13px;
+}
+
+.risk-cost-table th {
+  text-align: left;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.risk-cost-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.risk-cost-table tr:last-child td {
+  border-bottom: none;
+  font-weight: 700;
+}
+
+.cost-saved {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.cost-danger {
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* === FOOTER === */
+.footer {
+  padding: 40px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero { padding: 60px 20px; }
+  .container { padding: 0 20px; }
+  .nav-tabs { padding: 0 16px; overflow-x: auto; }
+  .nav-tab { padding: 14px 16px; font-size: 13px; white-space: nowrap; }
+  .obj-metrics { grid-template-columns: 1fr; }
+  .task-row { grid-template-columns: 70px 1fr; }
+  .task-date { display: none; }
+  .glossary-item { grid-template-columns: 1fr; }
+  .hero-meta { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav-tabs">
+  <a href="#objectives" class="nav-tab active">Objectives</a>
+  <a href="#roadmap" class="nav-tab">Roadmap</a>
+  <a href="#risks" class="nav-tab">Rủi ro</a>
+  <a href="#glossary" class="nav-tab">Thuật ngữ</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-label">CYO Project · Product Owner Roadmap</div>
+    <h1>Deliver <span class="highlight">Insight Customer</span><br>từ 6M+ records</h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="dot"></span> 14/04 → 30/06/2026</div>
+      <div class="hero-meta-item"><span class="dot"></span> 11 tuần · MVP</div>
+      <div class="hero-meta-item"><span class="dot"></span> AI CRM Platform · YODY</div>
+      <div class="hero-meta-item"><span class="dot"></span> 3 Objectives · 28 Subtasks</div>
+    </div>
+  </div>
+</header>
+
+<!-- OBJECTIVES -->
+<section id="objectives">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">01 — OBJECTIVES</div>
+      <div class="section-title">3 Mục tiêu cốt lõi</div>
+      <div class="section-subtitle">Mọi thứ phục vụ North Star: Marketing team nhận được customer insights có giá trị và dùng được trong daily workflow.</div>
+    </div>
+
+    <div class="obj-grid">
+
+      <!-- OBJ 1 -->
+      <div class="obj-card obj-1 fade-in">
+        <div class="obj-number">01</div>
+        <span class="obj-tag">Research + Metrics</span>
+        <div class="obj-title">Hiểu đúng — Build đúng</div>
+        <div class="obj-desc">
+          <span class="kw">Phỏng vấn nội bộ</span> (Marketing Executor, Lead, BI team) để nắm <span class="kw">pain-point</span> thật.
+          Xây <span class="kw">Metric Catalog</span> đo được "<span class="kw">insight có giá trị</span>" nghĩa là gì.
+          Sau demo, <span class="kw">validate</span> lại bằng feedback thực tế — nếu < 50% useful thì dừng reassess.
+        </div>
+        <div class="obj-metrics">
+          <div class="metric-item"><div class="label">Interviews</div><div class="value">≥ 6 buổi · 3 nhóm</div></div>
+          <div class="metric-item"><div class="label">Pain-point Map</div><div class="value">v1.0 Signed off</div></div>
+          <div class="metric-item"><div class="label">Metric Catalog</div><div class="value">≥ 8 platform + ≥ 5 business</div></div>
+          <div class="metric-item"><div class="label">Validation</div><div class="value">≥ 70% rated "useful"</div></div>
+        </div>
+        <div class="obj-deadline">⏱ Interviews: 22/04 · Catalog: 02/05 · Validation: 16/05 · Baseline: 30/06</div>
+        <div class="obj-warning">⚠ Nếu post-demo validation < 50% "useful" → DỪNG reassess, không build tiếp.</div>
+      </div>
+
+      <!-- OBJ 2 -->
+      <div class="obj-card obj-2 fade-in">
+        <div class="obj-number">02</div>
+        <span class="obj-tag">North Star</span>
+        <div class="obj-title">Ship Insight Customer</div>
+        <div class="obj-desc">
+          Deliver hệ thống CYO hoạt động: <span class="kw-blue">Data Pipeline</span> → <span class="kw-blue">AI Agents</span> → <span class="kw-blue">Approval Workflow</span> → <span class="kw-blue">Channels</span> (Cowork + Dashboard).
+          Marketing team nhận <span class="kw-blue">customer insights</span> từ <span class="kw-blue">6M+ records</span> và dùng trong <span class="kw-blue">daily workflow</span>.
+        </div>
+        <div class="obj-metrics">
+          <div class="metric-item"><div class="label">Pipeline</div><div class="value">3 runs OK · dbt ≥ 95%</div></div>
+          <div class="metric-item"><div class="label">Demo v0.15</div><div class="value">Verdict = "Go"</div></div>
+          <div class="metric-item"><div class="label">Insight Types</div><div class="value">≥ 3/4 live</div></div>
+          <div class="metric-item"><div class="label">Features</div><div class="value">100% · Zero P0/P1</div></div>
+          <div class="metric-item"><div class="label">Security + MCP</div><div class="value">Done · ≥ 6/8 tools</div></div>
+          <div class="metric-item"><div class="label">Go-Live</div><div class="value">≥ 5 users · ≥ 3 packages</div></div>
+        </div>
+        <div class="obj-deadline">⏱ Pipeline: 02/05 · Demo: 10/05 · Complete: 13/06 · Go-live: 30/06</div>
+        <div class="obj-warning">⚠ Critical path: BQ access (Anh Bình) → dbt → ES → Agents → Demo. Delay BQ = delay tất cả.</div>
+      </div>
+
+      <!-- OBJ 3 -->
+      <div class="obj-card obj-3 fade-in">
+        <div class="obj-number">03</div>
+        <span class="obj-tag">Metadata + Governance + Backlog</span>
+        <div class="obj-title">Chạy đúng — Chạy lâu</div>
+        <div class="obj-desc">
+          <span class="kw-green">Data Dictionary</span> cho 100% tables + metrics có <span class="kw-green">lineage</span>.
+          <span class="kw-green">Governance</span>: access rules, quality standards, <span class="kw-green">version tracking</span>.
+          <span class="kw-green">Sprint cadence</span>: Planning Thứ Hai, Review Thứ Sáu, Report 17:00 Fri.
+        </div>
+        <div class="obj-metrics">
+          <div class="metric-item"><div class="label">Dictionary</div><div class="value">≥ 90% fields covered</div></div>
+          <div class="metric-item"><div class="label">Governance Policy</div><div class="value">CTO signed off</div></div>
+          <div class="metric-item"><div class="label">Change Log</div><div class="value">≥ 3 changes versioned</div></div>
+          <div class="metric-item"><div class="label">Backlog</div><div class="value">≥ 20 groomed · Phase 2 ≥ 15</div></div>
+        </div>
+        <div class="obj-deadline">⏱ Dictionary: 05/05 · Policy: 07/05 · Backlog: liên tục · Audit: 30/06</div>
+        <div class="obj-warning">⚠ Dễ bị cắt khi deadline gấp. ĐỪNG. Marketing hỏi "RFM tính sao?" mà không ai trả lời → mất trust.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP / SUBTASKS -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">02 — ROADMAP</div>
+      <div class="section-title">28 Subtasks · 4 Phases</div>
+      <div class="section-subtitle">Mỗi task gắn tag theo trụ cột PO: Research, Metrics, Metadata, Governance, Backlog, Build, Domain.</div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- PHASE 1 -->
+      <div class="phase-block phase-1 fade-in">
+        <div class="phase-dot">P1</div>
+        <div class="phase-header">
+          <div class="phase-title">Onboarding & Research</div>
+          <div class="phase-dates">Tuần 1-2 · 14/04 → 25/04</div>
+        </div>
+        <div class="phase-desc">Hiểu user, hiểu data, setup công cụ, chuẩn bị nền móng.</div>
+        <div class="task-list">
+          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Phỏng vấn <span class="kw">Marketing Executor</span> (2 người)</div><div class="task-detail">Workflow campaign hiện tại, pain-points, thời gian idea → gửi KH</div></div><div class="task-date">18/04</div></div>
+          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Phỏng vấn <span class="kw">Marketing Lead</span> + <span class="kw">BI team</span></div><div class="task-detail">Kỳ vọng insight, BQ landscape, metrics đang dùng</div></div><div class="task-date">22/04</div></div>
+          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Tổng hợp <span class="kw">Pain-point Map</span> v1.0</div><div class="task-detail">Vấn đề → Ai bị ảnh hưởng → Tần suất → Mức nghiêm trọng → CYO feature giải quyết</div></div><div class="task-date">25/04</div></div>
+          <div class="task-row"><span class="task-tag tag-domain">Domain</span><div class="task-content"><div class="task-title">Đọc <span class="kw">SRD 10 Features</span> + vẽ data flow</div><div class="task-detail">PG → BQ → dbt → ES/Graphiti → Agents → Output → Channels</div></div><div class="task-date">18/04</div></div>
+          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Setup board + import <span class="kw">Epics</span> + <span class="kw">Sprint 1 Planning</span></div><div class="task-detail">10 Epics, AC cho ≥ 5 US, Sprint 1 backlog ready</div></div><div class="task-date">21/04</div></div>
+          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Tham dự <span class="kw">Kick-off</span> + RACI draft</div><div class="task-detail">Meeting notes, action items, stakeholders aligned</div></div><div class="task-date">18/04</div></div>
+          <div class="task-row"><span class="task-tag tag-metadata">Metadata</span><div class="task-content"><div class="task-title">Coordinate <span class="kw-purple">BQ access</span> + bắt đầu audit metadata</div><div class="task-detail">Liên hệ Anh Bình, audit tables, ghi nhận fields/refresh cycle</div></div><div class="task-date">22/04</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title">Thu thập <span class="kw-blue">API credentials</span> (Meta, TikTok, Zalo)</div><div class="task-detail">Store AWS Secrets Manager, không block pipeline</div></div><div class="task-date">25/04</div></div>
+        </div>
+      </div>
+
+      <!-- PHASE 2 -->
+      <div class="phase-block phase-2 fade-in">
+        <div class="phase-dot">P2</div>
+        <div class="phase-header">
+          <div class="phase-title">MVP Build & Metrics</div>
+          <div class="phase-dates">Tuần 3-4 · 28/04 → 09/05</div>
+        </div>
+        <div class="phase-desc">Build pipeline, setup metrics framework, validate AI output, Demo v0.15.</div>
+        <div class="task-list">
+          <div class="task-row"><span class="task-tag tag-metrics">Metrics</span><div class="task-content"><div class="task-title">Draft <span class="kw-green">Metric Catalog</span> v1.0</div><div class="task-detail">≥ 8 platform + ≥ 5 business metrics, mỗi metric có formula + source + owner</div></div><div class="task-date">02/05</div></div>
+          <div class="task-row"><span class="task-tag tag-metadata">Metadata</span><div class="task-content"><div class="task-title"><span class="kw-purple">Data Dictionary</span> v1.0 — mart tables</div><div class="task-detail">mart_customer_360, mart_segment_summary, mart_product_affinity → Notion</div></div><div class="task-date">05/05</div></div>
+          <div class="task-row"><span class="task-tag tag-governance">Govern.</span><div class="task-content"><div class="task-title"><span class="kw">Data Governance Policy</span> v1.0</div><div class="task-detail">Access matrix (RBAC 5 roles), quality rules, change log, PII handling</div></div><div class="task-date">07/05</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title">Validate <span class="kw-blue">pipeline</span> + data quality spot-check</div><div class="task-detail">BQ → dbt → ES → Graphiti. Spot-check 50 customers.</div></div><div class="task-date">02/05</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title">Test cases <span class="kw-blue">InsightGen</span> + review <span class="kw-blue">AI outputs</span></div><div class="task-detail">≥ 10 test cases, 4 insight types, hallucination check, prompt tuning</div></div><div class="task-date">07/05</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">MCP</span> test + <span class="kw-blue">Demo v0.15</span> prep & execution</div><div class="task-detail">8 MCP tools + PII filter. Demo: query → insight → segment → content → approve</div></div><div class="task-date">10/05</div></div>
+          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Sprint 3-4 Planning + <span class="kw">Weekly Report</span> #1-2</div><div class="task-detail">Planning Thứ Hai, Review Thứ Sáu, Report 17:00 Fri</div></div><div class="task-date">09/05</div></div>
+        </div>
+      </div>
+
+      <!-- PHASE 3 -->
+      <div class="phase-block phase-3 fade-in">
+        <div class="phase-dot">P3</div>
+        <div class="phase-header">
+          <div class="phase-title">Stabilize & Governance</div>
+          <div class="phase-dates">Tuần 5-7 · 12/05 → 30/05</div>
+        </div>
+        <div class="phase-desc">Validation feedback, security sign-off, Dashboard review, vận hành governance.</div>
+        <div class="task-list">
+          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Post-demo <span class="kw">validation survey</span></div><div class="task-detail">Feedback form, update Pain-point Map v1.1, priority adjust</div></div><div class="task-date">16/05</div></div>
+          <div class="task-row"><span class="task-tag tag-metrics">Metrics</span><div class="task-content"><div class="task-title">Setup tracking — <span class="kw-green">platform metrics</span></div><div class="task-detail">Pipeline success, Approval turnaround, MCP success rate</div></div><div class="task-date">20/05</div></div>
+          <div class="task-row"><span class="task-tag tag-metadata">Metadata</span><div class="task-content"><div class="task-title">Dictionary update — <span class="kw-purple">insight + approval schema</span></div><div class="task-detail">approval_items, approval_history, insight/segment/content schema</div></div><div class="task-date">23/05</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">UAT scenarios</span> + <span class="kw-blue">Security sign-off</span> (#9)</div><div class="task-detail">≥ 20 scenarios GIVEN-WHEN-THEN. Keycloak, RBAC, PII, WAF, DPIA</div></div><div class="task-date">20/05</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">Approval</span> integration test + <span class="kw-blue">Dashboard</span> review</div><div class="task-detail">4 item types. Customer list, insights, approval queue. UX feedback</div></div><div class="task-date">30/05</div></div>
+          <div class="task-row"><span class="task-tag tag-governance">Govern.</span><div class="task-content"><div class="task-title"><span class="kw">Change log</span> operational + access audit</div><div class="task-detail">≥ 3 real changes logged. Access matrix = Keycloak RBAC verified</div></div><div class="task-date">30/05</div></div>
+          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Sprint 5-7 + Report #3-5 + <span class="kw">Phase 2 groom</span></div><div class="task-detail">Weekly cadence. Phase 2 ≥ 10 items groomed</div></div><div class="task-date">30/05</div></div>
+        </div>
+      </div>
+
+      <!-- PHASE 4 -->
+      <div class="phase-block phase-4 fade-in">
+        <div class="phase-dot">P4</div>
+        <div class="phase-header">
+          <div class="phase-title">UAT, Go-Live & Baseline</div>
+          <div class="phase-dates">Tuần 8-11 · 01/06 → 30/06</div>
+        </div>
+        <div class="phase-desc">UAT với Marketing team, training, go-live, đo baseline metrics.</div>
+        <div class="task-list">
+          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title"><span class="kw">UAT execution</span> + user observation</div><div class="task-detail">3-5 Marketing users. PO ngồi cạnh observe. Feedback structured</div></div><div class="task-date">06/06</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">Training</span> (2 buổi) + User guide</div><div class="task-detail">Cowork (power users) + Dashboard (Executors). Guide max 5 trang</div></div><div class="task-date">13/06</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">Go-live checklist</span></div><div class="task-detail">Pipeline stable 7 ngày, backup, monitoring, incident response, rollback</div></div><div class="task-date">20/06</div></div>
+          <div class="task-row"><span class="task-tag tag-metrics">Metrics</span><div class="task-content"><div class="task-title"><span class="kw-green">Baseline measurement</span> — Week 1</div><div class="task-detail">DAU, turnaround, success rate, packages, feedback score → "điểm 0"</div></div><div class="task-date">30/06</div></div>
+          <div class="task-row"><span class="task-tag tag-governance">Govern.</span><div class="task-content"><div class="task-title">Post go-live <span class="kw">data audit</span></div><div class="task-detail">Freshness SLA, PII leak check, RBAC, change log, metrics accuracy</div></div><div class="task-date">30/06</div></div>
+          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title"><span class="kw">Retro MVP</span> + Phase 2 backlog finalize</div><div class="task-detail">Lessons learned, velocity, Phase 2 ≥ 15 items groomed + estimated</div></div><div class="task-date">30/06</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RISKS -->
+<section id="risks">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">03 — RISKS</div>
+      <div class="section-title">Rủi ro & Giải pháp</div>
+      <div class="section-subtitle">Những rủi ro có thể khiến dự án chệch hướng — và cách phòng tránh.</div>
+    </div>
+
+    <div class="risk-grid">
+
+      <!-- RISK 1: TOKEN COST -->
+      <div class="risk-card risk-critical fade-in">
+        <div class="risk-header">
+          <span class="risk-severity">Critical</span>
+          <div class="risk-title">Token Cost bùng nổ khi scale users</div>
+        </div>
+        <div class="risk-body">
+          SRD estimate <span class="kw">Claude API ~$14/mo</span> dựa trên giả định <span class="kw">5-20 users</span>, batch processing weekly.
+          Nhưng nếu 15 Marketing users dùng <span class="kw">SegmentChat</span> (on-demand, real-time LLM) hàng ngày — mỗi chat ~$0.01, 
+          mỗi người 20 queries/ngày → <span class="cost-danger">$0.01 × 20 × 15 × 22 ngày = $66/mo</span> chỉ riêng SegmentChat.
+          Cộng InsightGen (Opus, đắt nhất) + ContentGen → token cost có thể <span class="cost-danger">tăng 5-10x</span> so với estimate.
+        </div>
+
+        <div class="risk-comparison">
+          <div class="risk-box bad">
+            <div class="risk-box-label">❌ Hiện tại — Full LLM</div>
+            <ul>
+              <li>Mọi query đều gọi Claude API</li>
+              <li>"Khách VIP HN" → Sonnet parse → ES query</li>
+              <li>Mỗi lần = ~2K-5K tokens</li>
+              <li>Scale 15 users = chi phí tuyến tính</li>
+              <li>$14/mo → có thể $70-140/mo</li>
+            </ul>
+          </div>
+          <div class="risk-box good">
+            <div class="risk-box-label">✓ Giải pháp — Text-to-SQL/ES</div>
+            <ul>
+              <li>Query đơn giản → parse trực tiếp, không gọi LLM</li>
+              <li>"Khách VIP HN" → Rule-based → ES query</li>
+              <li>Zero token cost cho 80% queries</li>
+              <li>Scale vô hạn users, chi phí = $0</li>
+              <li>LLM chỉ cho queries phức tạp (20%)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="risk-solution">
+          <div class="risk-solution-title">→ Giải pháp đề xuất: Hybrid Text-to-ES</div>
+          <div class="risk-solution-content">
+            Xây <span class="kw">Query Classifier</span> trước khi gọi LLM. Phân loại query thành 2 tier:
+
+            <div class="risk-flow">
+              <div class="risk-flow-step">User gõ NL query</div>
+              <div class="risk-flow-arrow">→</div>
+              <div class="risk-flow-step highlight-step">Query Classifier</div>
+              <div class="risk-flow-arrow">→</div>
+              <div class="risk-flow-step">Simple? → Rule-based parser (zero cost)</div>
+            </div>
+            <div class="risk-flow">
+              <div class="risk-flow-step" style="visibility:hidden">placeholder</div>
+              <div class="risk-flow-arrow" style="visibility:hidden">→</div>
+              <div class="risk-flow-step highlight-step">Query Classifier</div>
+              <div class="risk-flow-arrow">→</div>
+              <div class="risk-flow-step">Complex? → SegmentChat LLM (token cost)</div>
+            </div>
+
+            <br>
+            <strong>Tier 1 — Rule-based (target: 80% queries, zero LLM cost):</strong><br>
+            Các pattern phổ biến có thể parse bằng regex/keyword matching:<br>
+            • <span class="kw">Filter đơn</span>: "khách VIP", "khách HN", "nữ 25-35" → map trực tiếp sang ES query DSL<br>
+            • <span class="kw">RFM segments</span>: "VIP", "Champion", "At-risk", "Lost" → lookup bảng segment có sẵn<br>
+            • <span class="kw">Saved segments</span>: "segment tháng trước", "top spenders" → query SQLite<br>
+            • <span class="kw">Aggregations</span>: "bao nhiêu khách HCM", "tổng revenue Q3" → template ES agg query<br>
+            <br>
+            <strong>Tier 2 — LLM (target: 20% queries, controlled cost):</strong><br>
+            Chỉ dùng Claude khi query thực sự phức tạp:<br>
+            • <span class="kw-blue">Multi-condition phức tạp</span>: "khách mua polo > 2 lần ở HN nhưng chưa mua Q2, follow Zalo"<br>
+            • <span class="kw-blue">Ambiguous intent</span>: "khách có vẻ sắp churn" (cần LLM reason)<br>
+            • <span class="kw-blue">Iterative refinement</span>: "thu hẹp thêm theo AOV" (cần context conversation)<br>
+
+            <table class="risk-cost-table">
+              <tr><th>Scenario</th><th>Users</th><th>Queries/ngày</th><th>Token Cost/tháng</th></tr>
+              <tr><td>Hiện tại (100% LLM)</td><td>5</td><td>10</td><td>~$14</td></tr>
+              <tr><td>Scale (100% LLM)</td><td>15</td><td>20</td><td class="cost-danger">~$70-140</td></tr>
+              <tr><td>Scale (Hybrid 80/20)</td><td>15</td><td>20</td><td class="cost-saved">~$18-30</td></tr>
+              <tr><td>Tiết kiệm</td><td></td><td></td><td class="cost-saved">~70-80%</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="obj-warning" style="margin-top:20px">
+          ⚠ <strong>Action item cho PO:</strong> Đưa Query Classifier vào backlog Phase 2 (P1). MVP chấp nhận 100% LLM vì chỉ 3-5 users. 
+          Nhưng TRƯỚC khi mở cho 15 users → Hybrid phải ready. Nếu không, token bill sẽ vượt budget approved ($300/mo total).
+        </div>
+      </div>
+
+      <!-- RISK 2: BQ ACCESS DELAY -->
+      <div class="risk-card risk-critical fade-in">
+        <div class="risk-header">
+          <span class="risk-severity">Critical</span>
+          <div class="risk-title">BQ Access chậm → toàn bộ timeline trượt</div>
+        </div>
+        <div class="risk-body">
+          <span class="kw">Critical path</span>: BQ access → dbt models → ES indexing → AI Agents → Demo.
+          Nếu BI team (Anh Bình) không cấp BQ access trong <span class="kw">tuần 1</span> → mọi thứ shift.
+          Demo 10/05 chỉ cách 3.5 tuần — <span class="cost-danger">không có buffer</span>.
+        </div>
+        <div class="risk-solution">
+          <div class="risk-solution-title">→ Mitigation</div>
+          <div class="risk-solution-content">
+            PO push BQ access <span class="kw">ngày 15/04</span> (ngày mai). Nếu không response trong 48h → escalate CTO.
+            Fallback: dùng <span class="kw-blue">sample CSV export</span> từ BQ để unblock dbt development song song.
+          </div>
+        </div>
+      </div>
+
+      <!-- RISK 3: HALLUCINATION -->
+      <div class="risk-card risk-critical fade-in">
+        <div class="risk-header">
+          <span class="risk-severity">Critical</span>
+          <div class="risk-title">AI Hallucination → Marketing ra quyết định sai</div>
+        </div>
+        <div class="risk-body">
+          <span class="kw">InsightGen (Opus)</span> có thể bịa metrics: "doanh thu Polo tăng 50%" trong khi thực tế chỉ 12%.
+          Nếu PO approve mà không catch → Marketing chạy campaign sai → <span class="cost-danger">thiệt hại brand + budget</span>.
+        </div>
+        <div class="risk-solution">
+          <div class="risk-solution-title">→ Mitigation đã có trong SRD</div>
+          <div class="risk-solution-content">
+            <span class="kw-green">QualityCheck (Haiku)</span> fact-check mọi số liệu trước khi đến PO.
+            <span class="kw-green">Approval Workflow (#8)</span> bắt buộc human review.
+            PO cần <span class="kw">cross-check ≥ 3 metrics/insight</span> với BQ raw data trong tháng đầu để calibrate trust level.
+          </div>
+        </div>
+      </div>
+
+      <!-- RISK 4: COWORK MCP -->
+      <div class="risk-card risk-medium fade-in">
+        <div class="risk-header">
+          <span class="risk-severity">Medium</span>
+          <div class="risk-title">Cowork MCP chưa verify SSE + OAuth</div>
+        </div>
+        <div class="risk-body">
+          SRD ghi rõ: "cần verify Cowork support <span class="kw">SSE transport</span> + <span class="kw">OAuth 2.0</span>". 
+          Đây vẫn là <span class="cost-danger">open question</span>. Nếu Cowork không support → Demo v0.15 phải chuyển sang REST API + CLI.
+        </div>
+        <div class="risk-solution">
+          <div class="risk-solution-title">→ Mitigation</div>
+          <div class="risk-solution-content">
+            Test Cowork MCP connection trong <span class="kw">tuần 1</span> (trước khi invest 6-8 ngày vào MCP Server).
+            Fallback: Demo qua <span class="kw-blue">REST API + Postman/CLI</span> — ít ấn tượng hơn nhưng functional.
+          </div>
+        </div>
+      </div>
+
+      <!-- RISK 5: PII LEAK -->
+      <div class="risk-card risk-medium fade-in">
+        <div class="risk-header">
+          <span class="risk-severity">Medium</span>
+          <div class="risk-title">PII leak qua Claude API → vi phạm PDPA</div>
+        </div>
+        <div class="risk-body">
+          CYO xử lý <span class="kw">6M+ PII records</span>. Claude API servers ở US.
+          Nếu code bug gửi phone/name lên Claude thay vì c360_id → <span class="cost-danger">vi phạm Nghị định 13</span> về chuyển dữ liệu xuyên biên giới.
+          Giải pháp <span class="kw-green">Text-to-SQL/ES</span> (Risk #1) cũng giúp giảm rủi ro này — ít query qua LLM = ít cơ hội leak PII.
+        </div>
+        <div class="risk-solution">
+          <div class="risk-solution-title">→ Mitigation</div>
+          <div class="risk-solution-content">
+            <span class="kw-green">PII Response Filter</span> strip phone/name/email trước khi gửi Claude.
+            <span class="kw-green">Whitelist approach</span> — chỉ các fields được phép mới pass qua.
+            <span class="kw-green">ES read-only user</span> cho agents — không thể modify data.
+            PO cần verify PII filter <span class="kw">trước Demo</span> bằng test case cụ thể.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section id="glossary">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">04 — GLOSSARY</div>
+      <div class="section-title">Thuật ngữ quan trọng</div>
+      <div class="section-subtitle">Giải nghĩa ngắn gọn, có ví dụ cụ thể trong dự án CYO.</div>
+    </div>
+
+    <div class="glossary-grid">
+
+      <div class="glossary-section-title">Kiến trúc & Hạ tầng</div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">MCP Server</div><div class="glossary-abbr">Model Context Protocol</div></div><div><div class="glossary-def">Giao thức cho phép AI (Claude) kết nối và dùng công cụ bên ngoài. CYO tạo MCP Server để Cowork truy vấn data, tạo segment, xem insight qua chat.</div><div class="glossary-example">PO gõ "cho tôi xem insight tuần này" → Claude gọi MCP tool → trả kết quả.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">Cowork</div><div class="glossary-abbr">Claude Cowork (Anthropic)</div></div><div><div class="glossary-def">App desktop chat với Claude, kết nối hệ thống ngoài qua MCP. Kênh chính cho power users (CTO, PO, Marketing Lead).</div><div class="glossary-example">CTO hỏi "tại sao segment này mua Polo nhiều Q3?" → Claude truy vấn ES + Graphiti.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">Keycloak</div><div class="glossary-abbr">Open-source Identity Provider</div></div><div><div class="glossary-def">Hệ thống đăng nhập & phân quyền. YODY đã có sẵn. CYO tạo realm/client quản lý 5 roles (Admin, PO, Lead, Executor, Viewer).</div><div class="glossary-example">PO đăng nhập → Keycloak check role → cho approve insight nhưng không manage users.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">VPC / WAF / ALB</div><div class="glossary-abbr">AWS Network Stack</div></div><div><div class="glossary-def">VPC = mạng riêng cách ly. WAF = tường lửa web. ALB = bộ phân tải. CYO chỉ cho IP văn phòng YODY truy cập.</div></div></div>
+
+      <div class="glossary-section-title">Data Pipeline & Xử lý</div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">dbt</div><div class="glossary-abbr">data build tool</div></div><div><div class="glossary-def">Công cụ biến đổi data bằng SQL. Tổ chức: staging → intermediate → mart. "Nhà máy chế biến" data thô thành data sạch.</div><div class="glossary-example">Raw customers từ BQ → clean, dedup, tính RFM → output mart_customer_360 (6M+ rows).</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">Dagster</div><div class="glossary-abbr">Orchestrator</div></div><div><div class="glossary-def">Công cụ điều phối — tự động chạy các bước xử lý data theo lịch. Quản lý: chạy dbt, kéo API data, đẩy vào ES.</div><div class="glossary-example">Dagster chạy 3×/tuần: Gọi Meta API → chạy dbt → đẩy vào Elasticsearch.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">Elasticsearch (ES)</div><div class="glossary-abbr">Search & Analytics Engine</div></div><div><div class="glossary-def">Tìm kiếm & phân tích data cực nhanh. CYO lưu Customer 360 + ad signals để AI agents truy vấn.</div><div class="glossary-example">"Tìm khách HCM, nữ, 25-35, mua >3 lần" → ES trả kết quả < 2 giây từ 6M records.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">Graphiti + Neo4j</div><div class="glossary-abbr">Knowledge Graph</div></div><div><div class="glossary-def">Neo4j = database đồ thị lưu quan hệ. Graphiti = thư viện giúp AI xây "bộ nhớ" từ data. Lưu: Segment ↔ Product ↔ Channel.</div><div class="glossary-example">"Segment VIP_HN thích Polo Classic, mua nhiều qua Zalo, peak Q3" → AI dùng kiến thức này gợi ý content.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">PII / PII Masking</div><div class="glossary-abbr">Personally Identifiable Information</div></div><div><div class="glossary-def">Thông tin định danh: tên, SĐT, email. PII Masking = che giấu PII trong logs/cloud. CYO KHÔNG BAO GIỜ gửi PII lên Claude API.</div><div class="glossary-example">Log ghi "customer_id=CUS_00123" thay vì "Nguyễn Văn A, 0912xxx".</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">RFM</div><div class="glossary-abbr">Recency – Frequency – Monetary</div></div><div><div class="glossary-def">Mô hình phân loại KH: mua lần cuối bao lâu, mua bao nhiêu lần, chi bao nhiêu. Mỗi yếu tố 1-5 điểm.</div><div class="glossary-example">RFM 555 = "VIP Champion". RFM 111 = "Lost / Hibernating".</div></div></div>
+
+      <div class="glossary-section-title">AI Agents</div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">Agent (AI Agent)</div><div class="glossary-abbr">—</div></div><div><div class="glossary-def">Chương trình AI chuyên biệt 1 nhiệm vụ. CYO chia nhỏ thay vì 1 AI làm tất cả (dễ sai).</div><div class="glossary-example">DataAnalyst (truy vấn) → InsightGen (phân tích) → QualityCheck (kiểm tra) → ContentGen (viết).</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">Hallucination</div><div class="glossary-abbr">—</div></div><div><div class="glossary-def">AI "bịa" thông tin không có trong data. Lý do CYO có QualityCheck agent + Approval workflow.</div><div class="glossary-example">InsightGen nói "doanh thu tăng 50%" → QualityCheck check lại → thực tế chỉ 12% → flag sai.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">Sonnet / Opus / Haiku</div><div class="glossary-abbr">Claude Model Tiers</div></div><div><div class="glossary-def">Haiku = nhanh, rẻ (check nhanh). Sonnet = cân bằng (truy vấn, viết). Opus = mạnh nhất, đắt nhất (phân tích sâu).</div><div class="glossary-example">DataAnalyst = Sonnet. InsightGen = Opus. QualityCheck = Haiku.</div></div></div>
+
+      <div class="glossary-section-title">Product & Quy trình</div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">UAT</div><div class="glossary-abbr">User Acceptance Testing</div></div><div><div class="glossary-def">Marketing team dùng thử CYO và xác nhận "OK dùng được" hoặc "cần sửa". Bước cuối trước go-live.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">RBAC</div><div class="glossary-abbr">Role-Based Access Control</div></div><div><div class="glossary-def">Phân quyền theo vai trò. 5 roles: Admin, PO, Marketing Lead, Executor, Viewer — mỗi role quyền khác nhau.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">DPIA</div><div class="glossary-abbr">Data Protection Impact Assessment</div></div><div><div class="glossary-def">Đánh giá tác động bảo vệ dữ liệu — bắt buộc theo Nghị định 13 khi xử lý data cá nhân quy mô lớn (6M+ customers).</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">Acceptance Criteria</div><div class="glossary-abbr">AC</div></div><div><div class="glossary-def">Tiêu chí chấp nhận. Format: GIVEN (điều kiện) → WHEN (hành động) → THEN (kết quả).</div><div class="glossary-example">GIVEN PO xem insight → WHEN nhấn "Approve" → THEN status = approved + timestamp ghi lại.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">Critical Path</div><div class="glossary-abbr">—</div></div><div><div class="glossary-def">Chuỗi công việc phụ thuộc nhau — bất kỳ cái nào trễ = toàn bộ dự án trễ.</div><div class="glossary-example">BQ access → dbt → ES → Agents → Demo. BQ chậm 3 ngày = Demo chậm 3 ngày.</div></div></div>
+
+      <div class="glossary-item fade-in"><div><div class="glossary-term">P0 / P1 / P2</div><div class="glossary-abbr">Priority Levels</div></div><div><div class="glossary-def">P0 = Critical, fix ngay. P1 = Important, fix trong sprint. P2 = Nice-to-have, backlog.</div><div class="glossary-example">P0: "Pipeline fail" → fix ngay. P1: "Font sai" → sprint. P2: "Dark mode" → backlog.</div></div></div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  CYO Project · YODY · PO Roadmap · Updated April 2026
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Nav active state
+const tabs = document.querySelectorAll('.nav-tab');
+const sections = document.querySelectorAll('section');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 100) {
+      current = section.getAttribute('id');
+    }
+  });
+  tabs.forEach(tab => {
+    tab.classList.remove('active');
+    if (tab.getAttribute('href') === '#' + current) {
+      tab.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -758,7 +758,8 @@ section {
 
 <!-- NAV -->
 <nav class="nav-tabs">
-  <a href="#objectives" class="nav-tab active">Objectives</a>
+  <a href="#timeline-chart" class="nav-tab active">Timeline</a>
+  <a href="#objectives" class="nav-tab">Objectives</a>
   <a href="#roadmap" class="nav-tab">Roadmap</a>
   <a href="#risks" class="nav-tab">Rủi ro</a>
   <a href="#glossary" class="nav-tab">Thuật ngữ</a>
@@ -770,13 +771,159 @@ section {
     <div class="hero-label">CYO Project · Product Owner Roadmap</div>
     <h1>Deliver <span class="highlight">Insight Customer</span><br>từ 6M+ records</h1>
     <div class="hero-meta">
-      <div class="hero-meta-item"><span class="dot"></span> 14/04 → 30/06/2026</div>
-      <div class="hero-meta-item"><span class="dot"></span> 11 tuần · MVP</div>
+      <div class="hero-meta-item"><span class="dot"></span> 14/04 → 30/06/2026 · 54 ngày làm việc</div>
+      <div class="hero-meta-item"><span class="dot"></span> 12 tuần · MVP</div>
       <div class="hero-meta-item"><span class="dot"></span> AI CRM Platform · YODY</div>
       <div class="hero-meta-item"><span class="dot"></span> 3 Objectives · 28 Subtasks</div>
     </div>
   </div>
 </header>
+
+<!-- GANTT TIMELINE -->
+<section id="timeline-chart" style="padding: 40px 0 20px;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">OVERVIEW</div>
+      <div class="section-title">Timeline tổng quan · 12 tuần</div>
+      <div class="section-subtitle">54 ngày làm việc (Thứ Hai → Thứ Sáu). Nghỉ lễ 30/04 + 01/05. Demo: 08/05. Go-live: 30/06.</div>
+    </div>
+    <div id="gantt-container" class="fade-in" style="overflow-x:auto;"></div>
+  </div>
+</section>
+
+<script>
+(function() {
+  const weeks = [
+    { n:1, start:'14/04', end:'17/04', days:4, label:'T1' },
+    { n:2, start:'20/04', end:'24/04', days:5, label:'T2' },
+    { n:3, start:'27/04', end:'01/05', days:3, label:'T3', holiday:'30/04-01/05' },
+    { n:4, start:'04/05', end:'08/05', days:5, label:'T4' },
+    { n:5, start:'11/05', end:'15/05', days:5, label:'T5' },
+    { n:6, start:'18/05', end:'22/05', days:5, label:'T6' },
+    { n:7, start:'25/05', end:'29/05', days:5, label:'T7' },
+    { n:8, start:'01/06', end:'05/06', days:5, label:'T8' },
+    { n:9, start:'08/06', end:'12/06', days:5, label:'T9' },
+    { n:10, start:'15/06', end:'19/06', days:5, label:'T10' },
+    { n:11, start:'22/06', end:'26/06', days:5, label:'T11' },
+    { n:12, start:'29/06', end:'30/06', days:2, label:'T12' },
+  ];
+
+  const phases = [
+    { name:'Phase 1 — Onboarding & Research', color:'#FCAF17', weeks:[1,2], tasks:['Phỏng vấn users','Đọc SRD','Setup backlog','BQ access','API credentials'] },
+    { name:'Phase 2 — MVP Build & Metrics', color:'#4A9EFF', weeks:[3,4], tasks:['Metric Catalog','Data Dictionary','Governance Policy','Pipeline validate','AI Agent review','★ Demo v0.15 (08/05)'] },
+    { name:'Phase 3 — Stabilize & Governance', color:'#34D399', weeks:[5,6,7], tasks:['Post-demo validation','Metrics tracking','Security sign-off','Dashboard review','Change log ops'] },
+    { name:'Phase 4 — UAT & Go-Live', color:'#A78BFA', weeks:[8,9,10,11,12], tasks:['UAT execution','Training','Go-live checklist','Baseline metrics','Data audit','★ Go-Live (30/06)'] },
+  ];
+
+  const milestones = [
+    { week:4, label:'★ Demo', color:'#FCAF17' },
+    { week:9, label:'Feature Complete', color:'#4A9EFF' },
+    { week:12, label:'★ Go-Live', color:'#34D399' },
+  ];
+
+  const totalWeeks = 12;
+  const colW = 72;
+  const labelW = 260;
+  const rowH = 44;
+  const headerH = 70;
+  const chartW = labelW + totalWeeks * colW + 20;
+
+  let html = '<div style="min-width:' + chartW + 'px;">';
+
+  // Week headers
+  html += '<div style="display:flex; align-items:end; margin-bottom:2px;">';
+  html += '<div style="width:' + labelW + 'px; flex-shrink:0;"></div>';
+  weeks.forEach(w => {
+    const isHoliday = w.holiday;
+    html += '<div style="width:' + colW + 'px; text-align:center; flex-shrink:0;">';
+    html += '<div style="font-family:var(--mono);font-size:11px;color:var(--text-muted);letter-spacing:1px;">' + w.label + '</div>';
+    html += '<div style="font-size:10px;color:' + (isHoliday ? '#F87171' : 'var(--text-muted)') + ';">' + w.start + '</div>';
+    if (isHoliday) html += '<div style="font-size:9px;color:#F87171;">🔴 Lễ</div>';
+    html += '<div style="font-size:10px;color:var(--text-muted);">' + w.days + 'd</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+
+  // Grid lines
+  const gridTop = 0;
+
+  // Phase rows
+  phases.forEach((phase, pi) => {
+    const startCol = phase.weeks[0] - 1;
+    const endCol = phase.weeks[phase.weeks.length - 1];
+    const barLeft = startCol * colW;
+    const barWidth = (endCol - startCol) * colW - 4;
+
+    // Phase bar row
+    html += '<div style="display:flex; align-items:center; margin-bottom:4px; height:' + rowH + 'px;">';
+    html += '<div style="width:' + labelW + 'px; flex-shrink:0; font-size:13px; font-weight:600; color:' + phase.color + '; padding-right:16px; text-align:right; white-space:nowrap;">' + phase.name + '</div>';
+    html += '<div style="position:relative; flex:1; height:100%;">';
+    
+    // Background grid columns
+    for (let i = 0; i < totalWeeks; i++) {
+      html += '<div style="position:absolute;left:' + (i*colW) + 'px;top:0;width:' + colW + 'px;height:100%;border-left:1px solid var(--border);"></div>';
+    }
+    
+    // Bar
+    html += '<div style="position:absolute;left:' + barLeft + 'px;top:8px;width:' + barWidth + 'px;height:28px;background:' + phase.color + '20;border:1.5px solid ' + phase.color + ';border-radius:6px;display:flex;align-items:center;padding:0 12px;">';
+    html += '<span style="font-family:var(--mono);font-size:10px;color:' + phase.color + ';letter-spacing:0.5px;white-space:nowrap;">';
+    html += 'T' + phase.weeks[0] + '–T' + phase.weeks[phase.weeks.length-1];
+    html += '</span>';
+    html += '</div>';
+    html += '</div></div>';
+
+    // Task sub-rows
+    phase.tasks.forEach(task => {
+      const isMilestone = task.startsWith('★');
+      html += '<div style="display:flex; align-items:center; height:26px;">';
+      html += '<div style="width:' + labelW + 'px; flex-shrink:0; font-size:12px; color:' + (isMilestone ? phase.color : 'var(--text-muted)') + '; padding-right:16px; text-align:right; font-weight:' + (isMilestone ? '700' : '400') + ';white-space:nowrap;">' + task + '</div>';
+      html += '<div style="position:relative; flex:1; height:100%;">';
+      for (let i = 0; i < totalWeeks; i++) {
+        html += '<div style="position:absolute;left:' + (i*colW) + 'px;top:0;width:' + colW + 'px;height:100%;border-left:1px dotted var(--border);opacity:0.5;"></div>';
+      }
+      html += '</div></div>';
+    });
+
+    // Spacer
+    if (pi < phases.length - 1) {
+      html += '<div style="height:12px;"></div>';
+    }
+  });
+
+  // Milestone diamonds row
+  html += '<div style="display:flex; align-items:center; height:36px; margin-top:12px; border-top:1px solid var(--border); padding-top:8px;">';
+  html += '<div style="width:' + labelW + 'px; flex-shrink:0; font-family:var(--mono); font-size:11px; color:var(--text-muted); text-align:right; padding-right:16px; letter-spacing:1px;">MILESTONES</div>';
+  html += '<div style="position:relative; flex:1; height:100%;">';
+  milestones.forEach(m => {
+    const left = (m.week - 1) * colW + colW/2 - 8;
+    html += '<div style="position:absolute;left:' + left + 'px;top:0;">';
+    html += '<div style="width:16px;height:16px;background:' + m.color + ';transform:rotate(45deg);border-radius:2px;"></div>';
+    html += '<div style="position:absolute;top:20px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:' + m.color + ';white-space:nowrap;font-weight:600;">' + m.label + '</div>';
+    html += '</div>';
+  });
+  html += '</div></div>';
+
+  // Working days summary
+  html += '<div style="margin-top:32px; display:flex; gap:16px; flex-wrap:wrap;">';
+  const summaryItems = [
+    { label:'Tổng working days', value:'54 ngày', color:'var(--text)' },
+    { label:'Nghỉ lễ', value:'30/04 + 01/05 (2 ngày)', color:'#F87171' },
+    { label:'Demo v0.15', value:'Thứ Sáu 08/05', color:'#FCAF17' },
+    { label:'Feature Complete', value:'Thứ Sáu 12/06', color:'#4A9EFF' },
+    { label:'Go-Live', value:'Thứ Ba 30/06', color:'#34D399' },
+  ];
+  summaryItems.forEach(s => {
+    html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 16px;flex:1;min-width:140px;">';
+    html += '<div style="font-size:11px;color:var(--text-muted);font-family:var(--mono);letter-spacing:0.5px;text-transform:uppercase;">' + s.label + '</div>';
+    html += '<div style="font-size:15px;font-weight:700;color:' + s.color + ';margin-top:4px;">' + s.value + '</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+
+  html += '</div>';
+  document.getElementById('gantt-container').innerHTML = html;
+})();
+</script>
 
 <!-- OBJECTIVES -->
 <section id="objectives">
@@ -805,7 +952,7 @@ section {
           <div class="metric-item"><div class="label">Metric Catalog</div><div class="value">≥ 8 platform + ≥ 5 business</div></div>
           <div class="metric-item"><div class="label">Validation</div><div class="value">≥ 70% rated "useful"</div></div>
         </div>
-        <div class="obj-deadline">⏱ Interviews: 22/04 · Catalog: 02/05 · Validation: 16/05 · Baseline: 30/06</div>
+        <div class="obj-deadline">⏱ Interviews: 21/04 · Catalog: 29/04 · Validation: 15/05 · Baseline: 30/06</div>
         <div class="obj-warning">⚠ Nếu post-demo validation < 50% "useful" → DỪNG reassess, không build tiếp.</div>
       </div>
 
@@ -826,7 +973,7 @@ section {
           <div class="metric-item"><div class="label">Security + MCP</div><div class="value">Done · ≥ 6/8 tools</div></div>
           <div class="metric-item"><div class="label">Go-Live</div><div class="value">≥ 5 users · ≥ 3 packages</div></div>
         </div>
-        <div class="obj-deadline">⏱ Pipeline: 02/05 · Demo: 10/05 · Complete: 13/06 · Go-live: 30/06</div>
+        <div class="obj-deadline">⏱ Pipeline: 29/04 · Demo: 08/05 · Complete: 12/06 · Go-live: 30/06</div>
         <div class="obj-warning">⚠ Critical path: BQ access (Anh Bình) → dbt → ES → Agents → Demo. Delay BQ = delay tất cả.</div>
       </div>
 
@@ -846,7 +993,7 @@ section {
           <div class="metric-item"><div class="label">Change Log</div><div class="value">≥ 3 changes versioned</div></div>
           <div class="metric-item"><div class="label">Backlog</div><div class="value">≥ 20 groomed · Phase 2 ≥ 15</div></div>
         </div>
-        <div class="obj-deadline">⏱ Dictionary: 05/05 · Policy: 07/05 · Backlog: liên tục · Audit: 30/06</div>
+        <div class="obj-deadline">⏱ Dictionary: 05/05 · Policy: 07/05 · Backlog: liên tục · Audit: 26/06</div>
         <div class="obj-warning">⚠ Dễ bị cắt khi deadline gấp. ĐỪNG. Marketing hỏi "RFM tính sao?" mà không ai trả lời → mất trust.</div>
       </div>
 
@@ -870,18 +1017,18 @@ section {
         <div class="phase-dot">P1</div>
         <div class="phase-header">
           <div class="phase-title">Onboarding & Research</div>
-          <div class="phase-dates">Tuần 1-2 · 14/04 → 25/04</div>
+          <div class="phase-dates">Tuần 1-2 · 14/04 → 24/04</div>
         </div>
         <div class="phase-desc">Hiểu user, hiểu data, setup công cụ, chuẩn bị nền móng.</div>
         <div class="task-list">
-          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Phỏng vấn <span class="kw">Marketing Executor</span> (2 người)</div><div class="task-detail">Workflow campaign hiện tại, pain-points, thời gian idea → gửi KH</div></div><div class="task-date">18/04</div></div>
-          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Phỏng vấn <span class="kw">Marketing Lead</span> + <span class="kw">BI team</span></div><div class="task-detail">Kỳ vọng insight, BQ landscape, metrics đang dùng</div></div><div class="task-date">22/04</div></div>
-          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Tổng hợp <span class="kw">Pain-point Map</span> v1.0</div><div class="task-detail">Vấn đề → Ai bị ảnh hưởng → Tần suất → Mức nghiêm trọng → CYO feature giải quyết</div></div><div class="task-date">25/04</div></div>
-          <div class="task-row"><span class="task-tag tag-domain">Domain</span><div class="task-content"><div class="task-title">Đọc <span class="kw">SRD 10 Features</span> + vẽ data flow</div><div class="task-detail">PG → BQ → dbt → ES/Graphiti → Agents → Output → Channels</div></div><div class="task-date">18/04</div></div>
+          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Phỏng vấn <span class="kw">Marketing Executor</span> (2 người)</div><div class="task-detail">Workflow campaign hiện tại, pain-points, thời gian idea → gửi KH</div></div><div class="task-date">17/04</div></div>
+          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Phỏng vấn <span class="kw">Marketing Lead</span> + <span class="kw">BI team</span></div><div class="task-detail">Kỳ vọng insight, BQ landscape, metrics đang dùng</div></div><div class="task-date">21/04</div></div>
+          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Tổng hợp <span class="kw">Pain-point Map</span> v1.0</div><div class="task-detail">Vấn đề → Ai bị ảnh hưởng → Tần suất → Mức nghiêm trọng → CYO feature giải quyết</div></div><div class="task-date">24/04</div></div>
+          <div class="task-row"><span class="task-tag tag-domain">Domain</span><div class="task-content"><div class="task-title">Đọc <span class="kw">SRD 10 Features</span> + vẽ data flow</div><div class="task-detail">PG → BQ → dbt → ES/Graphiti → Agents → Output → Channels</div></div><div class="task-date">17/04</div></div>
           <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Setup board + import <span class="kw">Epics</span> + <span class="kw">Sprint 1 Planning</span></div><div class="task-detail">10 Epics, AC cho ≥ 5 US, Sprint 1 backlog ready</div></div><div class="task-date">21/04</div></div>
-          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Tham dự <span class="kw">Kick-off</span> + RACI draft</div><div class="task-detail">Meeting notes, action items, stakeholders aligned</div></div><div class="task-date">18/04</div></div>
-          <div class="task-row"><span class="task-tag tag-metadata">Metadata</span><div class="task-content"><div class="task-title">Coordinate <span class="kw-purple">BQ access</span> + bắt đầu audit metadata</div><div class="task-detail">Liên hệ Anh Bình, audit tables, ghi nhận fields/refresh cycle</div></div><div class="task-date">22/04</div></div>
-          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title">Thu thập <span class="kw-blue">API credentials</span> (Meta, TikTok, Zalo)</div><div class="task-detail">Store AWS Secrets Manager, không block pipeline</div></div><div class="task-date">25/04</div></div>
+          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Tham dự <span class="kw">Kick-off</span> + RACI draft</div><div class="task-detail">Meeting notes, action items, stakeholders aligned</div></div><div class="task-date">17/04</div></div>
+          <div class="task-row"><span class="task-tag tag-metadata">Metadata</span><div class="task-content"><div class="task-title">Coordinate <span class="kw-purple">BQ access</span> + bắt đầu audit metadata</div><div class="task-detail">Liên hệ Anh Bình, audit tables, ghi nhận fields/refresh cycle</div></div><div class="task-date">21/04</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title">Thu thập <span class="kw-blue">API credentials</span> (Meta, TikTok, Zalo)</div><div class="task-detail">Store AWS Secrets Manager, không block pipeline</div></div><div class="task-date">24/04</div></div>
         </div>
       </div>
 
@@ -890,17 +1037,17 @@ section {
         <div class="phase-dot">P2</div>
         <div class="phase-header">
           <div class="phase-title">MVP Build & Metrics</div>
-          <div class="phase-dates">Tuần 3-4 · 28/04 → 09/05</div>
+          <div class="phase-dates">Tuần 3-4 · 27/04 → 08/05</div>
         </div>
         <div class="phase-desc">Build pipeline, setup metrics framework, validate AI output, Demo v0.15.</div>
         <div class="task-list">
-          <div class="task-row"><span class="task-tag tag-metrics">Metrics</span><div class="task-content"><div class="task-title">Draft <span class="kw-green">Metric Catalog</span> v1.0</div><div class="task-detail">≥ 8 platform + ≥ 5 business metrics, mỗi metric có formula + source + owner</div></div><div class="task-date">02/05</div></div>
+          <div class="task-row"><span class="task-tag tag-metrics">Metrics</span><div class="task-content"><div class="task-title">Draft <span class="kw-green">Metric Catalog</span> v1.0</div><div class="task-detail">≥ 8 platform + ≥ 5 business metrics, mỗi metric có formula + source + owner</div></div><div class="task-date">29/04</div></div>
           <div class="task-row"><span class="task-tag tag-metadata">Metadata</span><div class="task-content"><div class="task-title"><span class="kw-purple">Data Dictionary</span> v1.0 — mart tables</div><div class="task-detail">mart_customer_360, mart_segment_summary, mart_product_affinity → Notion</div></div><div class="task-date">05/05</div></div>
           <div class="task-row"><span class="task-tag tag-governance">Govern.</span><div class="task-content"><div class="task-title"><span class="kw">Data Governance Policy</span> v1.0</div><div class="task-detail">Access matrix (RBAC 5 roles), quality rules, change log, PII handling</div></div><div class="task-date">07/05</div></div>
-          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title">Validate <span class="kw-blue">pipeline</span> + data quality spot-check</div><div class="task-detail">BQ → dbt → ES → Graphiti. Spot-check 50 customers.</div></div><div class="task-date">02/05</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title">Validate <span class="kw-blue">pipeline</span> + data quality spot-check</div><div class="task-detail">BQ → dbt → ES → Graphiti. Spot-check 50 customers.</div></div><div class="task-date">29/04</div></div>
           <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title">Test cases <span class="kw-blue">InsightGen</span> + review <span class="kw-blue">AI outputs</span></div><div class="task-detail">≥ 10 test cases, 4 insight types, hallucination check, prompt tuning</div></div><div class="task-date">07/05</div></div>
-          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">MCP</span> test + <span class="kw-blue">Demo v0.15</span> prep & execution</div><div class="task-detail">8 MCP tools + PII filter. Demo: query → insight → segment → content → approve</div></div><div class="task-date">10/05</div></div>
-          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Sprint 3-4 Planning + <span class="kw">Weekly Report</span> #1-2</div><div class="task-detail">Planning Thứ Hai, Review Thứ Sáu, Report 17:00 Fri</div></div><div class="task-date">09/05</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">MCP</span> test + <span class="kw-blue">Demo v0.15</span> prep & execution</div><div class="task-detail">8 MCP tools + PII filter. Demo: query → insight → segment → content → approve</div></div><div class="task-date">08/05</div></div>
+          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Sprint 3-4 Planning + <span class="kw">Weekly Report</span> #1-2</div><div class="task-detail">Planning Thứ Hai, Review Thứ Sáu, Report 17:00 Fri</div></div><div class="task-date">08/05</div></div>
         </div>
       </div>
 
@@ -909,17 +1056,17 @@ section {
         <div class="phase-dot">P3</div>
         <div class="phase-header">
           <div class="phase-title">Stabilize & Governance</div>
-          <div class="phase-dates">Tuần 5-7 · 12/05 → 30/05</div>
+          <div class="phase-dates">Tuần 5-7 · 11/05 → 29/05</div>
         </div>
         <div class="phase-desc">Validation feedback, security sign-off, Dashboard review, vận hành governance.</div>
         <div class="task-list">
-          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Post-demo <span class="kw">validation survey</span></div><div class="task-detail">Feedback form, update Pain-point Map v1.1, priority adjust</div></div><div class="task-date">16/05</div></div>
-          <div class="task-row"><span class="task-tag tag-metrics">Metrics</span><div class="task-content"><div class="task-title">Setup tracking — <span class="kw-green">platform metrics</span></div><div class="task-detail">Pipeline success, Approval turnaround, MCP success rate</div></div><div class="task-date">20/05</div></div>
-          <div class="task-row"><span class="task-tag tag-metadata">Metadata</span><div class="task-content"><div class="task-title">Dictionary update — <span class="kw-purple">insight + approval schema</span></div><div class="task-detail">approval_items, approval_history, insight/segment/content schema</div></div><div class="task-date">23/05</div></div>
-          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">UAT scenarios</span> + <span class="kw-blue">Security sign-off</span> (#9)</div><div class="task-detail">≥ 20 scenarios GIVEN-WHEN-THEN. Keycloak, RBAC, PII, WAF, DPIA</div></div><div class="task-date">20/05</div></div>
-          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">Approval</span> integration test + <span class="kw-blue">Dashboard</span> review</div><div class="task-detail">4 item types. Customer list, insights, approval queue. UX feedback</div></div><div class="task-date">30/05</div></div>
-          <div class="task-row"><span class="task-tag tag-governance">Govern.</span><div class="task-content"><div class="task-title"><span class="kw">Change log</span> operational + access audit</div><div class="task-detail">≥ 3 real changes logged. Access matrix = Keycloak RBAC verified</div></div><div class="task-date">30/05</div></div>
-          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Sprint 5-7 + Report #3-5 + <span class="kw">Phase 2 groom</span></div><div class="task-detail">Weekly cadence. Phase 2 ≥ 10 items groomed</div></div><div class="task-date">30/05</div></div>
+          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title">Post-demo <span class="kw">validation survey</span></div><div class="task-detail">Feedback form, update Pain-point Map v1.1, priority adjust</div></div><div class="task-date">15/05</div></div>
+          <div class="task-row"><span class="task-tag tag-metrics">Metrics</span><div class="task-content"><div class="task-title">Setup tracking — <span class="kw-green">platform metrics</span></div><div class="task-detail">Pipeline success, Approval turnaround, MCP success rate</div></div><div class="task-date">19/05</div></div>
+          <div class="task-row"><span class="task-tag tag-metadata">Metadata</span><div class="task-content"><div class="task-title">Dictionary update — <span class="kw-purple">insight + approval schema</span></div><div class="task-detail">approval_items, approval_history, insight/segment/content schema</div></div><div class="task-date">22/05</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">UAT scenarios</span> + <span class="kw-blue">Security sign-off</span> (#9)</div><div class="task-detail">≥ 20 scenarios GIVEN-WHEN-THEN. Keycloak, RBAC, PII, WAF, DPIA</div></div><div class="task-date">19/05</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">Approval</span> integration test + <span class="kw-blue">Dashboard</span> review</div><div class="task-detail">4 item types. Customer list, insights, approval queue. UX feedback</div></div><div class="task-date">29/05</div></div>
+          <div class="task-row"><span class="task-tag tag-governance">Govern.</span><div class="task-content"><div class="task-title"><span class="kw">Change log</span> operational + access audit</div><div class="task-detail">≥ 3 real changes logged. Access matrix = Keycloak RBAC verified</div></div><div class="task-date">29/05</div></div>
+          <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title">Sprint 5-7 + Report #3-5 + <span class="kw">Phase 2 groom</span></div><div class="task-detail">Weekly cadence. Phase 2 ≥ 10 items groomed</div></div><div class="task-date">29/05</div></div>
         </div>
       </div>
 
@@ -928,13 +1075,13 @@ section {
         <div class="phase-dot">P4</div>
         <div class="phase-header">
           <div class="phase-title">UAT, Go-Live & Baseline</div>
-          <div class="phase-dates">Tuần 8-11 · 01/06 → 30/06</div>
+          <div class="phase-dates">Tuần 8-12 · 01/06 → 30/06</div>
         </div>
         <div class="phase-desc">UAT với Marketing team, training, go-live, đo baseline metrics.</div>
         <div class="task-list">
-          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title"><span class="kw">UAT execution</span> + user observation</div><div class="task-detail">3-5 Marketing users. PO ngồi cạnh observe. Feedback structured</div></div><div class="task-date">06/06</div></div>
-          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">Training</span> (2 buổi) + User guide</div><div class="task-detail">Cowork (power users) + Dashboard (Executors). Guide max 5 trang</div></div><div class="task-date">13/06</div></div>
-          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">Go-live checklist</span></div><div class="task-detail">Pipeline stable 7 ngày, backup, monitoring, incident response, rollback</div></div><div class="task-date">20/06</div></div>
+          <div class="task-row"><span class="task-tag tag-research">Research</span><div class="task-content"><div class="task-title"><span class="kw">UAT execution</span> + user observation</div><div class="task-detail">3-5 Marketing users. PO ngồi cạnh observe. Feedback structured</div></div><div class="task-date">05/06</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">Training</span> (2 buổi) + User guide</div><div class="task-detail">Cowork (power users) + Dashboard (Executors). Guide max 5 trang</div></div><div class="task-date">12/06</div></div>
+          <div class="task-row"><span class="task-tag tag-build">Build</span><div class="task-content"><div class="task-title"><span class="kw-blue">Go-live checklist</span></div><div class="task-detail">Pipeline stable 7 ngày, backup, monitoring, incident response, rollback</div></div><div class="task-date">19/06</div></div>
           <div class="task-row"><span class="task-tag tag-metrics">Metrics</span><div class="task-content"><div class="task-title"><span class="kw-green">Baseline measurement</span> — Week 1</div><div class="task-detail">DAU, turnaround, success rate, packages, feedback score → "điểm 0"</div></div><div class="task-date">30/06</div></div>
           <div class="task-row"><span class="task-tag tag-governance">Govern.</span><div class="task-content"><div class="task-title">Post go-live <span class="kw">data audit</span></div><div class="task-detail">Freshness SLA, PII leak check, RBAC, change log, metrics accuracy</div></div><div class="task-date">30/06</div></div>
           <div class="task-row"><span class="task-tag tag-backlog">Backlog</span><div class="task-content"><div class="task-title"><span class="kw">Retro MVP</span> + Phase 2 backlog finalize</div><div class="task-detail">Lessons learned, velocity, Phase 2 ≥ 15 items groomed + estimated</div></div><div class="task-date">30/06</div></div>
@@ -1051,7 +1198,7 @@ section {
         <div class="risk-body">
           <span class="kw">Critical path</span>: BQ access → dbt models → ES indexing → AI Agents → Demo.
           Nếu BI team (Anh Bình) không cấp BQ access trong <span class="kw">tuần 1</span> → mọi thứ shift.
-          Demo 10/05 chỉ cách 3.5 tuần — <span class="cost-danger">không có buffer</span>.
+          Demo 08/05 chỉ cách 3.5 tuần — <span class="cost-danger">không có buffer</span>.
         </div>
         <div class="risk-solution">
           <div class="risk-solution-title">→ Mitigation</div>

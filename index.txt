@@ -1928,343 +1928,6 @@ footer {
   </div>
 </section>
 
-<section id="team-collab" style="padding-top: 0;">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-number">04b — TEAM COLLABORATION MODEL</div>
-      <div class="section-title">Luồng phối hợp thực tế · 3 tầng</div>
-      <div class="section-subtitle">Ai làm gì, ai báo cáo cho ai, và khi nào thì escalate. Đây là bản đồ quan hệ vận hành thực tế — không phải org chart.</div>
-    </div>
-
-    <!-- TIER LEGEND -->
-    <div class="fade-in" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;">
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.2);border-radius:10px;padding:10px 16px;">
-        <div style="width:10px;height:10px;border-radius:2px;background:var(--red);flex-shrink:0;"></div>
-        <div>
-          <div style="font-family:var(--mono);font-size:9px;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px;">Tầng 1 — Kiến trúc &amp; Bảo mật</div>
-          <div style="font-size:11px;color:var(--text-muted);">Quốc Anh (Solution Architect) · Ban Pháp Lý (PDPA) · Quang Thịnh (DevSecOps)</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2);border-radius:10px;padding:10px 16px;">
-        <div style="width:10px;height:10px;border-radius:2px;background:var(--green);flex-shrink:0;"></div>
-        <div>
-          <div style="font-family:var(--mono);font-size:9px;color:var(--green);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px;">Tầng 2 — Phát triển Core</div>
-          <div style="font-size:11px;color:var(--text-muted);">Team Anh Bình (Data · BigQuery) · Thắng &amp; Team Omega (AI Engine · Claude SDK)</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(255,169,8,0.08);border:1px solid rgba(255,169,8,0.2);border-radius:10px;padding:10px 16px;">
-        <div style="width:10px;height:10px;border-radius:2px;background:var(--accent);flex-shrink:0;"></div>
-        <div>
-          <div style="font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px;">Tầng 3 — Vận hành &amp; Bridge</div>
-          <div style="font-size:11px;color:var(--text-muted);">Công Văn (IT Support · Bridge) · Marketing / Users (Campaign Owner)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FLOWCHART SVG (re-themed for dark mode) -->
-    <div class="fade-in slide-card accent" style="padding: 32px; overflow-x: auto;">
-      <div style="font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:2px;margin-bottom:20px;">🔀 LUỒNG PHỐI HỢP CHIẾN LƯỢC CYO</div>
-      <div style="min-width: 680px;">
-
-<svg width="100%" viewBox="0 0 680 465" role="img" xmlns="http://www.w3.org/2000/svg" style="display:block;">
-<title>Luồng Phối Hợp Chiến Lược CYO — Dark Theme</title>
-<defs>
-  <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-  <mask id="gaps2" maskUnits="userSpaceOnUse">
-    <rect x="0" y="0" width="680" height="465" fill="white"/>
-    <rect x="17" y="38" width="200" height="19" fill="black" rx="2"/>
-    <rect x="279" y="37" width="169" height="20" fill="black" rx="2"/>
-    <rect x="279" y="260" width="190" height="19" fill="black" rx="2"/>
-    <rect x="91" y="72" width="74" height="22" fill="black" rx="2"/>
-    <rect x="72" y="91" width="113" height="19" fill="black" rx="2"/>
-    <rect x="36" y="172" width="89" height="22" fill="black" rx="2"/>
-    <rect x="45" y="189" width="71" height="19" fill="black" rx="2"/>
-    <rect x="82" y="256" width="92" height="22" fill="black" rx="2"/>
-    <rect x="91" y="275" width="75" height="19" fill="black" rx="2"/>
-    <rect x="450" y="69" width="107" height="22" fill="black" rx="2"/>
-    <rect x="435" y="86" width="139" height="19" fill="black" rx="2"/>
-    <rect x="431" y="159" width="151" height="22" fill="black" rx="2"/>
-    <rect x="438" y="178" width="138" height="19" fill="black" rx="2"/>
-    <rect x="321" y="287" width="72" height="22" fill="black" rx="2"/>
-    <rect x="301" y="306" width="112" height="19" fill="black" rx="2"/>
-    <rect x="467" y="287" width="126" height="22" fill="black" rx="2"/>
-    <rect x="477" y="306" width="107" height="19" fill="black" rx="2"/>
-    <rect x="83" y="215" width="76" height="19" fill="black" rx="2"/>
-    <rect x="202" y="66" width="107" height="19" fill="black" rx="2"/>
-    <rect x="202" y="251" width="89" height="19" fill="black" rx="2"/>
-    <rect x="508" y="116" width="64" height="19" fill="black" rx="2"/>
-    <rect x="405" y="233" width="104" height="19" fill="black" rx="2"/>
-    <rect x="444" y="219" width="93" height="19" fill="black" rx="2"/>
-    <rect x="407" y="282" width="55" height="19" fill="black" rx="2"/>
-    <rect x="360" y="398" width="167" height="19" fill="black" rx="2"/>
-    <rect x="206" y="282" width="76" height="19" fill="black" rx="2"/>
-    <rect x="206" y="176" width="85" height="19" fill="black" rx="2"/>
-    <rect x="44" y="434" width="70" height="19" fill="black" rx="2"/>
-    <rect x="170" y="434" width="67" height="19" fill="black" rx="2"/>
-  </mask>
-</defs>
-
-<!-- ══ TIER BOXES ══ -->
-<!-- Tier 1 -->
-<rect x="12" y="36" width="248" height="278" rx="8" fill="rgba(248,113,113,0.04)" stroke="rgba(248,113,113,0.25)" stroke-width="1" stroke-dasharray="6 3"/>
-<text x="22" y="52" style="opacity:.7;letter-spacing:.08em;fill:#F87171;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;">TẦNG KIẾN TRÚC &amp; BẢO MẬT</text>
-
-<!-- Tier 2 -->
-<rect x="274" y="36" width="394" height="208" rx="8" fill="rgba(52,211,153,0.03)" stroke="rgba(52,211,153,0.2)" stroke-width="1" stroke-dasharray="6 3"/>
-<text x="284" y="52" style="opacity:.7;letter-spacing:.08em;fill:#34D399;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;">TẦNG PHÁT TRIỂN CORE</text>
-
-<!-- Tier 3 -->
-<rect x="274" y="258" width="394" height="185" rx="8" fill="rgba(255,169,8,0.03)" stroke="rgba(255,169,8,0.2)" stroke-width="1" stroke-dasharray="6 3"/>
-<text x="284" y="274" style="opacity:.7;letter-spacing:.08em;fill:#FFA908;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;">TẦNG VẬN HÀNH &amp; BRIDGE</text>
-
-<!-- ══ NODES ══ -->
-
-<!-- Quoc Anh — red node -->
-<rect x="52" y="63" width="152" height="48" rx="8" fill="rgba(248,113,113,0.12)" stroke="rgba(248,113,113,0.5)" stroke-width="1"/>
-<text x="128" y="83" text-anchor="middle" dominant-baseline="central" style="fill:#F87171;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;">Quốc Anh</text>
-<text x="128" y="101" text-anchor="middle" dominant-baseline="central" style="fill:rgba(248,113,113,0.7);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Solution Architect</text>
-
-<!-- Ban Phap Ly — muted node -->
-<rect x="26" y="167" width="108" height="40" rx="8" fill="rgba(42,48,64,0.6)" stroke="rgba(168,179,200,0.2)" stroke-width="1"/>
-<text x="80" y="183" text-anchor="middle" dominant-baseline="central" style="fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;">Ban Pháp Lý</text>
-<text x="80" y="199" text-anchor="middle" dominant-baseline="central" style="fill:rgba(168,179,200,0.6);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">PDPA 2026</text>
-
-<!-- Quang Thinh — red node -->
-<rect x="52" y="247" width="152" height="48" rx="8" fill="rgba(248,113,113,0.12)" stroke="rgba(248,113,113,0.5)" stroke-width="1"/>
-<text x="128" y="267" text-anchor="middle" dominant-baseline="central" style="fill:#F87171;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;">Quang Thịnh</text>
-<text x="128" y="285" text-anchor="middle" dominant-baseline="central" style="fill:rgba(248,113,113,0.7);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">DevSecOps</text>
-
-<!-- Anh Binh — green node -->
-<rect x="430" y="64" width="148" height="40" rx="8" fill="rgba(52,211,153,0.12)" stroke="rgba(52,211,153,0.4)" stroke-width="1"/>
-<text x="504" y="80" text-anchor="middle" dominant-baseline="central" style="fill:#34D399;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;">Team Anh Bình</text>
-<text x="504" y="96" text-anchor="middle" dominant-baseline="central" style="fill:rgba(52,211,153,0.65);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Data Source · BigQuery</text>
-
-<!-- Omega — blue node -->
-<rect x="378" y="150" width="258" height="52" rx="8" fill="rgba(74,158,255,0.12)" stroke="rgba(74,158,255,0.4)" stroke-width="1"/>
-<text x="507" y="170" text-anchor="middle" dominant-baseline="central" style="fill:#4A9EFF;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;">Thắng &amp; Team Omega</text>
-<text x="507" y="188" text-anchor="middle" dominant-baseline="central" style="fill:rgba(74,158,255,0.7);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">AI Engine · Claude SDK</text>
-
-<!-- Cong Van — amber node -->
-<rect x="286" y="278" width="142" height="52" rx="8" fill="rgba(255,169,8,0.12)" stroke="rgba(255,169,8,0.4)" stroke-width="1"/>
-<text x="357" y="298" text-anchor="middle" dominant-baseline="central" style="fill:#FFA908;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;">Công Văn</text>
-<text x="357" y="316" text-anchor="middle" dominant-baseline="central" style="fill:rgba(255,169,8,0.7);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">IT Support · Bridge</text>
-
-<!-- Marketing — purple node -->
-<rect x="446" y="278" width="168" height="52" rx="8" fill="rgba(167,139,250,0.12)" stroke="rgba(167,139,250,0.4)" stroke-width="1"/>
-<text x="530" y="298" text-anchor="middle" dominant-baseline="central" style="fill:#A78BFA;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;">Marketing / Users</text>
-<text x="530" y="316" text-anchor="middle" dominant-baseline="central" style="fill:rgba(167,139,250,0.7);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Campaign Owner</text>
-
-<!-- ══ SOLID ARROWS (delivery flow) ══ -->
-
-<!-- Legal → Quang Thinh -->
-<path d="M80 207 L80 245" fill="none" stroke="#A8B3C8" stroke-width="1" marker-end="url(#ar2)" mask="url(#gaps2)"/>
-<text x="87" y="229" style="opacity:.65;fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Quy định PII</text>
-
-<!-- QA → Omega -->
-<path d="M204 87 L260 87 L260 162 L376 162" fill="none" stroke="#A8B3C8" stroke-width="1" marker-end="url(#ar2)"/>
-<text x="207" y="80" style="opacity:.65;fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Thiết kế kiến trúc</text>
-
-<!-- QT → Omega -->
-<path d="M204 271 L260 271 L260 178 L376 178" fill="none" stroke="#A8B3C8" stroke-width="1" marker-end="url(#ar2)" mask="url(#gaps2)"/>
-<text x="207" y="265" style="opacity:.65;fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Setup Hạ tầng</text>
-
-<!-- Anh Binh → Omega -->
-<path d="M504 104 L504 148" fill="none" stroke="#A8B3C8" stroke-width="1" marker-end="url(#ar2)" mask="url(#gaps2)"/>
-<text x="512" y="130" style="opacity:.65;fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Data sạch</text>
-
-<!-- Omega → CV -->
-<path d="M472 202 L472 252 L357 252 L357 276" fill="none" stroke="#A8B3C8" stroke-width="1" marker-end="url(#ar2)" mask="url(#gaps2)"/>
-<text x="410" y="247" style="opacity:.65;fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Xuất Insight/Seg.</text>
-
-<!-- CV → Omega (Bao loi, solid) -->
-<path d="M367 276 L367 238 L522 238 L522 202" fill="none" stroke="#A8B3C8" stroke-width="1" marker-end="url(#ar2)" mask="url(#gaps2)"/>
-<text x="448" y="233" style="opacity:.65;fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Báo lỗi/Yêu cầu</text>
-
-<!-- CV → Marketing -->
-<path d="M428 304 L444 304" fill="none" stroke="#A8B3C8" stroke-width="1" marker-end="url(#ar2)"/>
-<text x="434" y="296" text-anchor="middle" style="opacity:.65;fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Công cụ</text>
-
-<!-- Marketing → CV (feedback loop) -->
-<path d="M530 330 L530 396 L357 396 L357 330" fill="none" stroke="#A8B3C8" stroke-width="1" marker-end="url(#ar2)"/>
-<text x="443" y="412" text-anchor="middle" style="opacity:.65;fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Feedback &amp; Nhu cầu thực tế</text>
-
-<!-- ══ DASHED ESCALATION ARROWS ══ -->
-
-<!-- CV → Quang Thinh (escalate infra) -->
-<path d="M286 302 L255 302 L255 271 L206 271" fill="none" stroke="#F87171" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#ar2)" mask="url(#gaps2)"/>
-<text x="210" y="296" style="fill:#F87171;opacity:.8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Esc. hạ tầng</text>
-
-<!-- CV → Quoc Anh (escalate architecture) -->
-<path d="M286 290 L248 290 L248 87 L206 87" fill="none" stroke="#F87171" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#ar2)" mask="url(#gaps2)"/>
-<text x="210" y="190" style="fill:#F87171;opacity:.8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Esc. kiến trúc</text>
-
-<!-- ══ LEGEND ══ -->
-<line x1="14" y1="444" x2="42" y2="444" stroke="#A8B3C8" stroke-width="1" marker-end="url(#ar2)"/>
-<text x="48" y="448" style="opacity:.55;fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Luồng xuôi</text>
-<line x1="140" y1="444" x2="168" y2="444" stroke="#F87171" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#ar2)"/>
-<text x="174" y="448" style="opacity:.55;fill:#A8B3C8;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;">Escalation</text>
-</svg>
-
-      </div>
-    </div>
-
-    <!-- ESCALATION PROTOCOL -->
-    <div class="fade-in" style="margin-top: 20px;">
-      <div class="slide-card red">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--red);letter-spacing:2px;margin-bottom:16px;">⚡ ESCALATION PROTOCOL — KHI NÀO VÀ AI ESCALATE CHO AI</div>
-        <div style="font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.8;">
-          Escalation trong SVG không phải "báo cáo thường xuyên" — đây là <strong style="color:var(--text);">trigger cụ thể khi luồng xuôi bị blocked</strong>. Công Văn (Bridge) là người duy nhất có quyền kích hoạt escalation lên Tầng 1.
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-
-          <div style="background:var(--surface-2);border-radius:12px;padding:18px;border-left:3px solid var(--red);">
-            <div style="font-family:var(--mono);font-size:9px;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">Esc. Kiến trúc → Quốc Anh</div>
-            <div style="font-size:12px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">
-              Trigger khi Team Omega hoặc Team Anh Bình có xung đột về thiết kế hệ thống mà không tự resolve được trong <strong style="color:var(--text);">4h làm việc</strong>.
-            </div>
-            <div style="display:flex;flex-direction:column;gap:6px;">
-              <div style="font-size:11px;color:var(--text-muted);padding:6px 10px;background:rgba(248,113,113,0.07);border-radius:6px;">📌 Schema conflict: ES vs Graphiti storage strategy</div>
-              <div style="font-size:11px;color:var(--text-muted);padding:6px 10px;background:rgba(248,113,113,0.07);border-radius:6px;">📌 Agent topology thay đổi ảnh hưởng PII boundary</div>
-              <div style="font-size:11px;color:var(--text-muted);padding:6px 10px;background:rgba(248,113,113,0.07);border-radius:6px;">📌 MCP tool design mâu thuẫn với SRD v1.2</div>
-            </div>
-            <div style="margin-top:12px;padding:10px;background:rgba(255,169,8,0.08);border-radius:8px;font-size:11px;color:var(--accent);">
-              <strong>SLA:</strong> Quốc Anh phản hồi trong <strong>4h</strong> · Nếu quá → PO escalate CTO
-            </div>
-          </div>
-
-          <div style="background:var(--surface-2);border-radius:12px;padding:18px;border-left:3px solid var(--red);">
-            <div style="font-family:var(--mono);font-size:9px;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">Esc. Hạ tầng → Quang Thịnh</div>
-            <div style="font-size:12px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">
-              Trigger khi có sự cố infra hoặc security blocking team trong <strong style="color:var(--text);">2h làm việc</strong>. Không cần chờ — Công Văn escalate ngay lập tức.
-            </div>
-            <div style="display:flex;flex-direction:column;gap:6px;">
-              <div style="font-size:11px;color:var(--text-muted);padding:6px 10px;background:rgba(248,113,113,0.07);border-radius:6px;">📌 EC2 / ES cluster down ảnh hưởng pipeline</div>
-              <div style="font-size:11px;color:var(--text-muted);padding:6px 10px;background:rgba(248,113,113,0.07);border-radius:6px;">📌 WAF block nhầm traffic hợp lệ</div>
-              <div style="font-size:11px;color:var(--text-muted);padding:6px 10px;background:rgba(248,113,113,0.07);border-radius:6px;">📌 Keycloak OAuth failure trên Cowork MCP</div>
-            </div>
-            <div style="margin-top:12px;padding:10px;background:rgba(255,169,8,0.08);border-radius:8px;font-size:11px;color:var(--accent);">
-              <strong>SLA:</strong> Quang Thịnh phản hồi trong <strong>2h</strong> · Nếu quá → PO escalate CTO
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ROLES MAPPING TABLE -->
-    <div class="fade-in" style="margin-top: 20px;">
-      <div class="slide-card blue">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--blue);letter-spacing:2px;margin-bottom:16px;">👥 MAPPING: TÊN THẬT → ROLE → CHANNEL ACCESS</div>
-        <div style="font-size:13px;color:var(--text-muted);margin-bottom:16px;line-height:1.7;">SVG dùng tên thật, Roadmap dùng role abstractions. Bảng này là bridge — dùng khi onboard member mới hoặc khi cần tra cứu nhanh ai có quyền gì.</div>
-        <div style="overflow-x:auto;">
-          <table style="width:100%;border-collapse:collapse;font-size:12px;min-width:700px;">
-            <thead>
-              <tr style="background:var(--surface-2);">
-                <th style="padding:9px 14px;text-align:left;color:var(--text-muted);font-size:10px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">Tên thật / Team</th>
-                <th style="padding:9px 12px;text-align:left;color:var(--text-muted);font-size:10px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">Tầng</th>
-                <th style="padding:9px 12px;text-align:left;color:var(--text-muted);font-size:10px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">Role trong Roadmap</th>
-                <th style="padding:9px 12px;text-align:left;color:var(--text-muted);font-size:10px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">Channel Access</th>
-                <th style="padding:9px 12px;text-align:left;color:var(--text-muted);font-size:10px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">PII Tier</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom:1px solid var(--border);">
-                <td style="padding:9px 14px;font-weight:600;">Quốc Anh</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(248,113,113,0.12);color:var(--red);">Tầng 1</span></td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Solution Architect · CTO-level</td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Claude Cowork (MCP)</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(74,158,255,0.12);color:var(--blue);">Tier 1-2 (no PII)</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <td style="padding:9px 14px;font-weight:600;">Ban Pháp Lý</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(248,113,113,0.12);color:var(--red);">Tầng 1</span></td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Legal / Compliance Team</td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Dashboard (read-only)</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(167,139,250,0.12);color:var(--purple);">Audit logs only</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border);">
-                <td style="padding:9px 14px;font-weight:600;">Quang Thịnh</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(248,113,113,0.12);color:var(--red);">Tầng 1</span></td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Developer Team · DevSecOps</td>
-                <td style="padding:9px 12px;color:var(--text-muted);">API + SSH (infra access)</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(248,113,113,0.12);color:var(--red);">Admin (masked logs)</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <td style="padding:9px 14px;font-weight:600;">Team Anh Bình</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(52,211,153,0.12);color:var(--green);">Tầng 2</span></td>
-                <td style="padding:9px 12px;color:var(--text-muted);">BI Team · Data Source</td>
-                <td style="padding:9px 12px;color:var(--text-muted);">BigQuery · dbt (data layer)</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(74,158,255,0.12);color:var(--blue);">Tier 1-2 (mart only)</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border);">
-                <td style="padding:9px 14px;font-weight:600;">Thắng &amp; Team Omega</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(52,211,153,0.12);color:var(--green);">Tầng 2</span></td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Developer Team · AI Engine</td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Cowork + API (build access)</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(74,158,255,0.12);color:var(--blue);">Tier 1-2 (no PII to Claude API)</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <td style="padding:9px 14px;font-weight:600;">Công Văn</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(255,169,8,0.12);color:var(--accent);">Tầng 3</span></td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Bridge · IT Support</td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Dashboard (Executor role)</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(52,211,153,0.12);color:var(--green);">Tier 3 (full PII via Dashboard)</span></td>
-              </tr>
-              <tr>
-                <td style="padding:9px 14px;font-weight:600;">Marketing / Users</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(255,169,8,0.12);color:var(--accent);">Tầng 3</span></td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Marketing Team · Primary User</td>
-                <td style="padding:9px 12px;color:var(--text-muted);">Dashboard (Executor + Viewer)</td>
-                <td style="padding:9px 12px;"><span style="font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:rgba(52,211,153,0.12);color:var(--green);">Tier 3 (full PII via Dashboard)</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div style="margin-top:14px;padding:12px 16px;background:rgba(255,169,8,0.07);border-radius:8px;font-size:12px;color:var(--text-muted);border-left:3px solid var(--accent);">
-          <strong style="color:var(--accent);">⚠️ PII Boundary Rule:</strong> Bất kỳ data nào gửi lên Claude API (Anthropic Cloud) đều phải là Tier 1-2 — KHÔNG được chứa tên, SĐT, email. Chỉ c360_id và aggregated metrics. Vi phạm = PDPA risk + hủy audit trail. Xem SRD v1.2 Feature #9.
-        </div>
-      </div>
-    </div>
-
-    <!-- FEEDBACK LOOP -->
-    <div class="fade-in" style="margin-top: 20px;">
-      <div class="slide-card green">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--green);letter-spacing:2px;margin-bottom:14px;">🔄 FEEDBACK LOOP — MARKETING → TEAM OMEGA</div>
-        <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:16px;">
-          SVG có 1 vòng feedback quan trọng chưa được document trong Phase Dependencies: <strong style="color:var(--text);">Marketing phản hồi nhu cầu thực tế → Công Văn tổng hợp → Team Omega cải thiện AI output</strong>. Vòng này phải được capture vào Sprint cycle, không để nó chạy informal.
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
-          <div style="background:var(--surface-2);border-radius:10px;padding:14px;text-align:center;">
-            <div style="font-size:20px;margin-bottom:6px;">📣</div>
-            <div style="font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:1px;margin-bottom:5px;">MARKETING</div>
-            <div style="font-size:11px;color:var(--text-muted);line-height:1.5;">Dùng CYO, ghi nhận insight nào sai, segment nào miss</div>
-          </div>
-          <div style="background:var(--surface-2);border-radius:10px;padding:14px;text-align:center;">
-            <div style="font-size:20px;margin-bottom:6px;">🔀</div>
-            <div style="font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:1px;margin-bottom:5px;">CÔNG VĂN</div>
-            <div style="font-size:11px;color:var(--text-muted);line-height:1.5;">Tổng hợp feedback thành ticket có priority + context kỹ thuật</div>
-          </div>
-          <div style="background:var(--surface-2);border-radius:10px;padding:14px;text-align:center;">
-            <div style="font-size:20px;margin-bottom:6px;">🤖</div>
-            <div style="font-family:var(--mono);font-size:9px;color:var(--blue);letter-spacing:1px;margin-bottom:5px;">TEAM OMEGA</div>
-            <div style="font-size:11px;color:var(--text-muted);line-height:1.5;">Nhận ticket, cải thiện prompt/agent logic hoặc flag lên Quốc Anh</div>
-          </div>
-          <div style="background:var(--surface-2);border-radius:10px;padding:14px;text-align:center;">
-            <div style="font-size:20px;margin-bottom:6px;">📊</div>
-            <div style="font-family:var(--mono);font-size:9px;color:var(--green);letter-spacing:1px;margin-bottom:5px;">PO</div>
-            <div style="font-size:11px;color:var(--text-muted);line-height:1.5;">Track % feedback resolved, đưa vào Weekly Report</div>
-          </div>
-        </div>
-        <div style="margin-top:14px;padding:10px 14px;background:rgba(52,211,153,0.07);border-radius:8px;font-size:12px;color:var(--text-muted);">
-          <strong style="color:var(--green);">Cadence:</strong> Công Văn tổng hợp feedback <strong>mỗi cuối tuần (Thứ 6, 16:00)</strong> → Tạo ticket Jira/Linear trước EOD → Team Omega triage vào sáng Thứ 2.
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ════ 05 — GANTT ════ -->
 <section id="gantt" style="padding: 40px 0 20px;">
   <div class="container">
@@ -3366,153 +3029,155 @@ footer {
 
     <!-- ═══ PANEL: RISKS ═══ -->
     <div id="panel-risks">
+      <div class="risk-grid">
 
-      <style>
-        .risk-row-new { border:1px solid var(--border); border-radius:14px; overflow:hidden; margin-bottom:10px; }
-        .risk-row-new .rh { display:grid; grid-template-columns:110px 1fr 130px; align-items:center; gap:14px; padding:13px 18px; background:var(--surface-2); border-bottom:1px solid var(--border); }
-        .risk-row-new .rb { display:grid; grid-template-columns:1fr 1fr; }
-        .risk-row-new .rc { padding:13px 18px; font-size:13px; color:var(--text-muted); line-height:1.7; }
-        .risk-row-new .rc:first-child { border-right:1px solid var(--border); }
-        .risk-row-new .rc-lbl { font-family:var(--mono); font-size:10px; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:5px; }
-        .sev-c { font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 10px; border-radius:6px; text-align:center; }
-        .sev-c.crit { background:var(--red-dim); color:var(--red); border:1px solid rgba(248,113,113,0.3); }
-        .sev-c.high { background:var(--accent-dim); color:var(--accent); border:1px solid rgba(255,169,8,0.3); }
-        .sev-c.med  { background:var(--blue-dim); color:var(--blue); border:1px solid rgba(74,158,255,0.3); }
-        .risk-row-new .rn { font-size:14px; font-weight:700; color:var(--text); }
-        .risk-row-new .ro { font-family:var(--mono); font-size:10px; color:var(--text-muted); text-align:right; }
-      </style>
-
-      <div class="risk-row-new fade-in">
-        <div class="rh"><span class="sev-c crit">Critical</span><div class="rn">Token cost vượt budget khi scale</div><div class="ro">Finance</div></div>
-        <div class="rb">
-          <div class="rc"><div class="rc-lbl">Vấn đề</div>100% queries gọi LLM. Scale lên 15 users → InsightGen (Opus) đắt nhất, 1 batch ≈ $0.80. Tổng có thể lên $70–140/tháng chỉ riêng Claude API — gấp 5–7x estimate ban đầu.</div>
-          <div class="rc"><div class="rc-lbl">Mitigation</div>MVP chấp nhận 100% LLM với 3–5 users (cost ~$14–20/mo). Trước khi mở 15 users → <span class="kw">Query Classifier</span> (Phase 2 P1) phải ready. Budget cap cứng: $300/mo total.</div>
+        <div class="risk-card risk-critical fade-in">
+          <div class="risk-header"><span class="risk-severity">Critical</span><div class="risk-title">Token cost vượt budget khi scale</div></div>
+          <div class="risk-body">100% LLM queries = chi phí tuyến tính. Scale 15 users → <span class="cost-danger">$70–140/tháng</span> chỉ riêng Claude API. InsightGen (Opus) đắt nhất — 1 insight batch ≈ $0.80.</div>
+          <div class="risk-solution">
+            <div class="risk-solution-title">→ Mitigation</div>
+            <div class="risk-solution-content">Build <span class="kw">Query Classifier</span> — Phase 2 P1 (Q3). MVP chấp nhận 100% LLM với 3–5 users (cost ~$14–20/mo). Trước khi mở 15 users → Hybrid 80/20 phải ready. Budget cap: $300/mo total.</div>
+          </div>
         </div>
-      </div>
 
-      <div class="risk-row-new fade-in">
-        <div class="rh"><span class="sev-c crit">Critical</span><div class="rn">Approval fatigue — marketing rubber-stamp thay vì review thật</div><div class="ro">Process</div></div>
-        <div class="rb">
-          <div class="rc"><div class="rc-lbl">Vấn đề</div>50+ approval items/tuần → approver bấm "Approve All" không đọc. QualityCheck Agent trở nên vô nghĩa. Hallucination lọt qua — campaign chạy dựa trên số sai mà không ai biết.</div>
-          <div class="rc"><div class="rc-lbl">Mitigation</div>Giới hạn AI chỉ generate ≤10 insights/batch có confidence ≥ 0.7. Mỗi insight có Evidence section + confidence score. Phase 2: Approval Digest thay Queue — 1-click batch approve low-risk.</div>
+        <div class="risk-card risk-critical fade-in">
+          <div class="risk-header"><span class="risk-severity">Critical</span><div class="risk-title">BQ Access chậm → toàn bộ timeline trượt</div></div>
+          <div class="risk-body">Critical path cứng: <span class="kw">BQ access (BI Team T1) → dbt mart tables → ES sync → AI Agents → Demo 08/05</span>. T3 = 0 ngày nghỉ lễ đã xóa hết buffer. Delay 1 ngày ở T1 = Demo trễ 1 ngày.</div>
+          <div class="risk-solution">
+            <div class="risk-solution-title">→ Mitigation</div>
+            <div class="risk-solution-content">Escalate ngay <strong>17/04</strong> nếu BQ chưa sẵn. Fallback: staging BQ dataset (synthetic 50K records) để unblock Developer Team build pipeline. PO track BQ access như P0 task.</div>
+          </div>
         </div>
-      </div>
 
-      <div class="risk-row-new fade-in">
-        <div class="rh"><span class="sev-c crit">Critical</span><div class="rn">AI Hallucination → marketing ra quyết định sai</div><div class="ro">AI Quality</div></div>
-        <div class="rb">
-          <div class="rc"><div class="rc-lbl">Vấn đề</div><span class="kw">InsightGen (Opus)</span> có thể bịa số liệu plausible nhưng sai. Approver không đủ context phát hiện → Marketing chạy campaign sai → <span class="cost-danger">thiệt hại brand + budget</span> không đo được.</div>
-          <div class="rc"><div class="rc-lbl">Mitigation</div>3 lớp: <span class="kw-green">QualityCheck Agent</span> fact-check với ES, Approval Workflow bắt buộc, Evidence section + confidence score. PO cross-check ≥3 metrics/insight trong tháng đầu go-live.</div>
+        <div class="risk-card risk-critical fade-in">
+          <div class="risk-header"><span class="risk-severity">Critical</span><div class="risk-title">AI Hallucination → Marketing ra quyết định sai</div></div>
+          <div class="risk-body"><span class="kw">InsightGen (Opus)</span> có thể bịa số liệu plausible nhưng sai. Approver không đủ context để phát hiện → Marketing chạy campaign sai → <span class="cost-danger">thiệt hại brand + budget</span>.</div>
+          <div class="risk-solution">
+            <div class="risk-solution-title">→ Mitigation</div>
+            <div class="risk-solution-content"><span class="kw-green">QualityCheck Agent (Haiku)</span> fact-check mọi số liệu với ES. <span class="kw-green">Approval Workflow</span> bắt buộc. Mỗi insight có Evidence section + confidence score. PO cross-check ≥ 3 metrics/insight trong tháng đầu.</div>
+          </div>
         </div>
-      </div>
 
-      <div class="risk-row-new fade-in">
-        <div class="rh"><span class="sev-c crit">Critical</span><div class="rn">Data drift — pipeline fail âm thầm, insight stale không ai biết</div><div class="ro">Data Reliability</div></div>
-        <div class="rb">
-          <div class="rc"><div class="rc-lbl">Vấn đề</div>dbt chạy 3×/tuần. Nếu pipeline fail không alert, Agent vẫn query ES từ data 1 tuần cũ và generate insight "tươi" hôm nay — nhưng thực chất dựa trên data lỗi thời. Marketing không có cách phát hiện.</div>
-          <div class="rc"><div class="rc-lbl">Mitigation</div>Dagster alert ngay khi pipeline fail (Slack). Mỗi insight hiển thị "data as of [date]". Nếu data &gt;72h cũ → hệ thống tự block generate insight mới cho đến khi pipeline chạy lại thành công.</div>
+        <div class="risk-card risk-medium fade-in">
+          <div class="risk-header"><span class="risk-severity">Medium</span><div class="risk-title">Cowork MCP chưa verify SSE + OAuth 2.0</div></div>
+          <div class="risk-body">SRD ghi "cần verify Cowork support SSE transport + OAuth 2.0" — vẫn là <span class="cost-danger">open question</span> tại thời điểm viết roadmap. Không support → toàn bộ MCP layer phải chuyển sang REST API.</div>
+          <div class="risk-solution">
+            <div class="risk-solution-title">→ Mitigation</div>
+            <div class="risk-solution-content">Test Cowork MCP connection <strong>T5 (11–15/05)</strong> — ngay sau Demo, trước khi invest build thêm tools. Fallback: Demo qua <span class="kw-blue">REST API + Postman/CLI</span> — functional nhưng kém UX hơn.</div>
+          </div>
         </div>
-      </div>
 
-      <div class="risk-row-new fade-in">
-        <div class="rh"><span class="sev-c high">High</span><div class="rn">Agent join không deterministic — cùng câu hỏi, 2 lần trả lời khác nhau</div><div class="ro">AI Reliability</div></div>
-        <div class="rb">
-          <div class="rc"><div class="rc-lbl">Vấn đề</div>DataAnalyst join ES + Graphiti at reasoning time. Cùng 1 câu hỏi, 2 lần chạy có thể cho 2 con số khác nhau do LLM sampling. Marketing mất trust: "tuần trước nó nói 8,200, tuần này 7,900".</div>
-          <div class="rc"><div class="rc-lbl">Mitigation</div>Set temperature=0 cho DataAnalyst Agent. Cache kết quả ES query trong 24h — cùng query trả cùng kết quả. Mỗi insight lưu query params để reproducible khi cần audit lại.</div>
+        <div class="risk-card risk-medium fade-in">
+          <div class="risk-header"><span class="risk-severity">Medium</span><div class="risk-title">PII leak qua Claude API → vi phạm Nghị định 13</div></div>
+          <div class="risk-body">CYO xử lý <span class="kw">6M+ PII records</span>. Claude API servers đặt tại US. Một bug nhỏ gửi phone/name thay vì c360_id → <span class="cost-danger">vi phạm cross-border data transfer</span> theo Nghị định 13/2023.</div>
+          <div class="risk-solution">
+            <div class="risk-solution-title">→ Mitigation</div>
+            <div class="risk-solution-content"><span class="kw-green">PII Response Filter</span> whitelist approach — chỉ approved fields mới pass. Developer verify filter với test case cụ thể trước Demo. Legal review T5–T6. DPIA sign-off ≤ 19/06 (T10).</div>
+          </div>
         </div>
-      </div>
 
-      <div class="risk-row-new fade-in">
-        <div class="rh"><span class="sev-c high">High</span><div class="rn">Segment overlap — khách hàng nhận 3 tin nhắn/tuần từ 3 segment khác nhau</div><div class="ro">Customer Experience</div></div>
-        <div class="rb">
-          <div class="rc"><div class="rc-lbl">Vấn đề</div>MVP chưa có cross-segment deduplication. 1 KH có thể thuộc "VIP HN", "Polo buyers", "Win-back Q2" cùng lúc → nhận 3 tin nhắn/tuần → churn, complaint, <span class="cost-danger">brand damage</span>.</div>
-          <div class="rc"><div class="rc-lbl">Mitigation</div>Frequency Cap rule trước go-live: 1 customer_id tối đa 1 message/tuần dù thuộc bao nhiêu segment. Priority queue: VIP segment thắng win-back. Config được per segment.</div>
+        <div class="risk-card risk-medium fade-in">
+          <div class="risk-header"><span class="risk-severity">Medium</span><div class="risk-title">Graphiti chưa có production POC ở scale 6M+ nodes</div></div>
+          <div class="risk-body">Graphiti là thư viện Knowledge Graph còn mới. Không có public benchmarks ở scale 6M customer nodes + relationship edges. Nếu latency &gt;5s → <span class="cost-danger">Knowledge Graph layer phải redesign toàn bộ</span>.</div>
+          <div class="risk-solution">
+            <div class="risk-solution-title">→ Mitigation</div>
+            <div class="risk-solution-content">Chạy POC load test với <strong>100K nodes trước T4</strong>. Nếu latency &gt;5s → fallback về ES-only (vector search, bỏ Knowledge Graph). Quyết định trước Demo 08/05 để không block go-live.</div>
+          </div>
         </div>
-      </div>
 
-      <div class="risk-row-new fade-in">
-        <div class="rh"><span class="sev-c med">Medium</span><div class="rn">Zalo phone-match 30% — channel preference insight bị bias nặng</div><div class="ro">Data Coverage</div></div>
-        <div class="rb">
-          <div class="rc"><div class="rc-lbl">Vấn đề</div>Chỉ ~30% customers match được Zalo OA qua phone. 70% còn lại là blind spot hoàn toàn. InsightGen generate "Segment X prefer Zalo" dựa trên 30% sample → bias nghiêm trọng, không đại diện.</div>
-          <div class="rc"><div class="rc-lbl">Mitigation</div>Insight về Zalo channel phải có disclaimer "based on 30% matched customers". Confidence score tự động giảm khi sample &lt;50% segment. Ưu tiên Meta/TikTok insights cho MVP.</div>
+        <div class="risk-card risk-medium fade-in">
+          <div class="risk-header"><span class="risk-severity">Medium</span><div class="risk-title">Marketing adoption thấp sau go-live</div></div>
+          <div class="risk-body">5 users active là target tối thiểu. Nếu Marketing team không hình thành habit dùng CYO trong 4 tuần đầu → dự án thành công kỹ thuật nhưng <span class="cost-danger">thất bại về business value</span>. Adoption mà không đo được = không biết cải tiến gì.</div>
+          <div class="risk-solution">
+            <div class="risk-solution-title">→ Mitigation</div>
+            <div class="risk-solution-content">PO embed CYO vào weekly marketing meeting — mỗi họp đầu tuần dùng 1 insight từ CYO để kickoff. Training T9 phải hands-on, không phải slideshow. Nếu &lt;5 users active sau tuần 2 → PO interview ngay, không chờ tổng kết tháng.</div>
+          </div>
         </div>
-      </div>
 
-      <div class="risk-row-new fade-in">
-        <div class="rh"><span class="sev-c med">Medium</span><div class="rn">PO là single point of failure của approval workflow</div><div class="ro">Process</div></div>
-        <div class="rb">
-          <div class="rc"><div class="rc-lbl">Vấn đề</div>PO approve Customer Insight với SLA 4h. Nếu PO đang Sprint Planning, travel, OOO → toàn bộ insight pipeline tắc. Marketing chờ, mất tin vào hệ thống, quay về cách làm cũ.</div>
-          <div class="rc"><div class="rc-lbl">Mitigation</div>Fallback approver rõ ràng trong Governance Policy: Marketing Lead có quyền approve insight khi PO không available trên 4h. Auto-escalate Slack @channel nếu cả 2 không phản hồi.</div>
-        </div>
       </div>
-
     </div><!-- /panel-risks -->
 
     <!-- ═══ PANEL: SUGGESTIONS ═══ -->
     <div id="panel-suggestions" style="display:none;">
-      <div style="display:grid;gap:12px;">
+      <div style="display:grid;gap:14px;">
 
-        <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 14px 14px 0;padding:20px 22px;">
+        <!-- SUG 1 -->
+        <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 14px 14px 0;padding:22px 24px;">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
             <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;background:var(--green-dim);color:var(--green);">Phase 2 · P1</span>
-            <div style="font-size:15px;font-weight:700;">Query Classifier — giảm 80% token cost</div>
+            <div style="font-size:15px;font-weight:700;">Query Classifier — Giảm 80% token cost</div>
           </div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">Phần lớn queries Marketing gửi là simple lookups ("segment X có bao nhiêu người?", "AOV tuần này?") — không cần Opus, thậm chí không cần LLM. Query Classifier phân loại tự động: simple → ES query trực tiếp (zero cost), complex → gọi LLM. Phải implement trước khi mở rộng 15 users.</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">
+            Hiện tại 100% queries đều gọi LLM. Hầu hết queries từ Marketing là simple lookups ("segment X có bao nhiêu người?", "AOV tuần này?") — không cần Opus, thậm chí không cần LLM. Query Classifier phân loại: simple → ES query trực tiếp (zero cost), complex → LLM.
+          </div>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Saving</div><div style="font-weight:700;color:var(--green);">-80% token cost</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Estimated saving</div><div style="font-weight:700;color:var(--green);">-80% token cost</div></div>
             <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Effort</div><div style="font-weight:700;color:var(--accent);">~5 ngày dev</div></div>
             <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Timeline</div><div style="font-weight:700;color:var(--text-muted);">MVP 1.1 · Q3</div></div>
           </div>
         </div>
 
-        <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 14px 14px 0;padding:20px 22px;">
+        <!-- SUG 2 -->
+        <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:0 14px 14px 0;padding:22px 24px;">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
-            <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;background:var(--green-dim);color:var(--green);">Phase 2 · P1</span>
-            <div style="font-size:15px;font-weight:700;">On-demand Insight trigger — không chờ batch thứ Hai</div>
+            <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;background:var(--blue-dim);color:var(--blue);">Phase 2 · P1</span>
+            <div style="font-size:15px;font-weight:700;">Zalo ZNS Integration — Đóng vòng Insight → Action</div>
           </div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">AI generate insight batch mỗi thứ Hai. Marketing họp chiến lược thứ Tư → data đã 2 ngày cũ. On-demand trigger cho phép Marketing request insight bất kỳ lúc nào — kết quả trong 5–15 phút. Không thay thế batch nhưng critical khi cần quyết định nhanh.</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">
+            MVP dừng ở export ZIP (customers.csv + template). Marketing phải copy-paste thủ công vào Zalo OA dashboard. Feature #6 kết nối trực tiếp Zalo ZNS API — từ segment approve → gửi tin nhắn tự động (Mode B: approve_first). Giảm từ 2–3 ngày thực thi xuống còn &lt;1h.
+          </div>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Fix</div><div style="font-weight:700;color:var(--green);">Batch + on-demand</div></div>
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Effort</div><div style="font-weight:700;color:var(--accent);">~3 ngày dev</div></div>
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Add cost</div><div style="font-weight:700;color:var(--text-muted);">+$2–5/trigger</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Time saving</div><div style="font-weight:700;color:var(--green);">2–3 ngày → &lt;1h</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Dependency</div><div style="font-weight:700;color:var(--accent);">Feature #5 trước</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Timeline</div><div style="font-weight:700;color:var(--text-muted);">MVP 1.1 · Q3</div></div>
           </div>
         </div>
 
-        <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 14px 14px 0;padding:20px 22px;">
+        <!-- SUG 3 -->
+        <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 14px 14px 0;padding:22px 24px;">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
-            <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;background:var(--accent-dim);color:var(--accent);">Pre go-live</span>
-            <div style="font-size:15px;font-weight:700;">Data Freshness Indicator — "data as of [date]" trên mỗi insight</div>
+            <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;background:var(--accent-dim);color:var(--accent);">Phase 2 · P2</span>
+            <div style="font-size:15px;font-weight:700;">Attribution Dashboard — Đo ROI của CYO</div>
           </div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">Mỗi insight và segment hiển thị timestamp "data as of 22/06 — 3 days ago". Nếu data &gt;72h → badge đỏ cảnh báo. Marketing tự phát hiện stale data mà không cần hỏi BI Team hay PO. Chi phí dev thấp, impact trust cao.</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Effort</div><div style="font-weight:700;color:var(--green);">~1 ngày dev</div></div>
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Impact</div><div style="font-weight:700;color:var(--text-muted);">Giảm "data có đúng không?"</div></div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">
+            Sau khi Zalo ZNS live 2–4 tuần, có đủ data để build Feature #7 Attribution. Dashboard cho thấy: trigger nào → dẫn đến purchase nào → revenue bao nhiêu → CPO bao nhiêu. Đây là thứ CTO và Marketing Lead cần để justify tiếp tục invest vào CYO.
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Business value</div><div style="font-weight:700;color:var(--green);">Prove CYO ROI</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Risk</div><div style="font-weight:700;color:var(--red);">Cần POS data có phone</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Timeline</div><div style="font-weight:700;color:var(--text-muted);">MVP 1.2 · Q4</div></div>
           </div>
         </div>
 
-        <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 14px 14px 0;padding:20px 22px;">
+        <!-- SUG 4 -->
+        <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--purple);border-radius:0 14px 14px 0;padding:22px 24px;">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
-            <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;background:var(--accent-dim);color:var(--accent);">Pre go-live</span>
-            <div style="font-size:15px;font-weight:700;">Segment Frequency Cap — 1 KH tối đa N messages/tuần</div>
+            <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;background:var(--purple-dim);color:var(--purple);">Post MVP · Quick Win</span>
+            <div style="font-size:15px;font-weight:700;">Weekly Insight Digest — Tạo habit dùng CYO</div>
           </div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">Rule cứng ở tầng execution: 1 customer_id chỉ nhận tối đa 1 message/tuần dù thuộc bao nhiêu segment. Priority queue xử lý conflict: VIP segment win over win-back. Phải implement trước go-live — khi Zalo ZNS live (Phase 2), không có cap này = brand damage ngay.</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">
+            Thay vì chờ Marketing chủ động vào hỏi, CYO tự động generate "Weekly Digest" mỗi thứ Hai sáng — 3–5 insights nổi bật nhất tuần qua — gửi qua Slack/Zalo cho Marketing Lead. Tạo habit consumption mà không cần user chủ động. Effort thấp (~2 ngày dev), impact adoption cao.
+          </div>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Effort</div><div style="font-weight:700;color:var(--green);">~2 ngày dev</div></div>
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Default</div><div style="font-weight:700;color:var(--text-muted);">1 msg/customer/tuần</div></div>
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Config</div><div style="font-weight:700;color:var(--text-muted);">Điều chỉnh per segment</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Adoption impact</div><div style="font-weight:700;color:var(--green);">High · zero effort user</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Effort dev</div><div style="font-weight:700;color:var(--green);">~2 ngày</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Timeline</div><div style="font-weight:700;color:var(--text-muted);">Sau go-live 2 tuần</div></div>
           </div>
         </div>
 
-        <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--purple);border-radius:0 14px 14px 0;padding:20px 22px;">
+        <!-- SUG 5 -->
+        <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--red);border-radius:0 14px 14px 0;padding:22px 24px;">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
-            <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;background:var(--purple-dim);color:var(--purple);">Phase 2 · P2</span>
-            <div style="font-size:15px;font-weight:700;">Trust Score Dashboard — track % insights acted on, ROI cho CTO</div>
+            <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;background:var(--red-dim);color:var(--red);">Technical Debt · Watch</span>
+            <div style="font-size:15px;font-weight:700;">SQLite → PostgreSQL Migration trước khi scale</div>
           </div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">Sau 2–3 tháng go-live, CTO sẽ hỏi "CYO tạo ra value gì?". Trust Score Dashboard track theo thời gian: % insights approved, % được dùng trong campaign thực tế, % dẫn đến purchase (khi Attribution live), trend confidence score. Biến CYO từ "tool hay" thành "investment có ROI đo được".</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">
+            SRD chọn SQLite + Litestream cho MVP vì đủ dùng với &lt;20 concurrent users. Nếu scale lên 50+ users hoặc cần multi-write → SQLite sẽ là bottleneck. Không phải vấn đề ngay, nhưng cần migrate trước khi MVP 1.2 (Q4) khi có UI dashboard nhiều người dùng đồng thời.
+          </div>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Effort</div><div style="font-weight:700;color:var(--accent);">~4 ngày dev</div></div>
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Dependency</div><div style="font-weight:700;color:var(--text-muted);">≥8 tuần go-live data</div></div>
-            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Audience</div><div style="font-weight:700;color:var(--text-muted);">CTO + PO</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Trigger point</div><div style="font-weight:700;color:var(--red);">&gt;20 concurrent users</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Migration effort</div><div style="font-weight:700;color:var(--accent);">~5–7 ngày dev</div></div>
+            <div style="background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:12px;"><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-bottom:4px;">Timeline</div><div style="font-weight:700;color:var(--text-muted);">Trước MVP 1.2 · Q4</div></div>
           </div>
         </div>
 

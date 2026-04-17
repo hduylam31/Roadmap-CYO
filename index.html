@@ -914,6 +914,7 @@ footer {
           <li>Không có <strong>Single Source of Truth</strong> — Marketing tự đào bới data thủ công, chậm và thiếu chính xác.</li>
           <li>Con người không thể xử lý hiệu quả <strong>6M+ records</strong> — cần AI để làm thay.</li>
           <li>Nguy cơ vi phạm <strong>PDPA / Nghị định 13</strong> nếu không có hệ thống PII masking rõ ràng.</li>
+          <li>Dữ liệu AWS đặt tại <strong>Singapore</strong> → phát sinh vấn đề <strong>xuyên biên giới (cross-border)</strong> — cần Ban Pháp Chế và DPIA trước go-live.</li>
         </ul>
       </div>
       <div class="context-solution">
@@ -922,7 +923,7 @@ footer {
           <li><strong>Tập trung toàn bộ điểm chạm KH</strong> về 1 mối duy nhất → Customer 360° profile.</li>
           <li><strong>AI phân tích</strong> 6M+ records tự động → Insight thay thế & tối ưu năng lực con người.</li>
           <li>Kiến trúc <strong>Multi-Agent</strong>: DataAnalyst → InsightGen → QualityCheck → ContentGen.</li>
-          <li>Triển khai <strong>MCP-first</strong>: Leaders chat trực tiếp với dữ liệu qua Claude/Cowork.</li>
+          <li>Kiến trúc <strong>Dual-Channel</strong>: <em>Channel A</em> — Cowork (MCP · NL, dành cho CTO/PO/Mkt Lead, Tier 1–2 data, no PII) · <em>Channel B</em> — Dashboard web app (dành cho Marketing Executor/Viewer, full PII Tier 3).</li>
           <li><strong>PII masking</strong> bắt buộc: Chỉ Customer ID được gửi lên Cloud AI — tuân thủ tuyệt đối Nghị định 13.</li>
         </ul>
       </div>
@@ -942,7 +943,7 @@ footer {
       <div class="stat-card">
         <div class="stat-icon">🔗</div>
         <div class="stat-value">8</div>
-        <div class="stat-label">MCP Tools cho Demo v0.15</div>
+        <div class="stat-label">MCP Tools cho MCP test v1 (29/05)</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon">📅</div>
@@ -1016,7 +1017,7 @@ footer {
         <ul class="value-list">
           <li>Chứng minh năng lực <strong>AI engineering</strong> với sản phẩm thực tế</li>
           <li>Tích lũy kinh nghiệm xây dựng <strong>AI-native CRM</strong> từ đầu (greenfield)</li>
-          <li>Deliver Demo v0.15 đúng <strong>08/05</strong> → nhận verdict "Go" từ stakeholders</li>
+          <li>Internal Pipeline Demo <strong>08/05</strong> (checkpoint nội bộ) → <strong>Demo lần 1</strong> chính thức <strong>29/05</strong> (AI truy vấn Data Mart v1) → verdict "Go" từ stakeholders</li>
           <li>Go-live 30/06 với <strong>≥ 5 active users</strong> (≥ 1 query/tuần) và zero P0/P1 bugs</li>
           <li>Xây dựng nền tảng cho <strong>Phase 2 (MVP 1.1)</strong> với đầy đủ Data Mart + Skills</li>
         </ul>
@@ -1082,25 +1083,29 @@ footer {
     <div class="macro-phases fade-in">
       <div class="macro-phase m1">
         <div class="macro-phase-num">Phase MVP 0.15</div>
-        <div class="macro-phase-title">Build & Demo</div>
+        <div class="macro-phase-title">Build & Internal Checkpoint</div>
         <div class="macro-phase-date">14/04 → 08/05/2026</div>
         <div class="macro-phase-milestone">
-          🟡 <strong>Team Product:</strong> Pipeline + AI Agents + MCP<br>
-          🔵 <strong>BI Team:</strong> BQ access + dbt models<br>
-          🟢 <strong>Marketing:</strong> Tham gia phỏng vấn + Demo<br><br>
-          ⭐ <strong>Milestone:</strong> Demo v0.15 (08/05) — Verdict "Go/No-Go"
+          🟡 <strong>Team Product:</strong> Pipeline + AI Agents · Kick-off Marketing hoãn 1 tuần → T2<br>
+          🔵 <strong>BI Team:</strong> BQ access + dbt models (Data Mart v1)<br>
+          🟢 <strong>Marketing:</strong> Phỏng vấn + tham dự Internal Demo<br>
+          🔴 <strong>Legal:</strong> PII scope brief T1–T2 · Review PII filter T4<br><br>
+          ✅ <strong>Checkpoint:</strong> Internal Pipeline Demo (08/05) — Go/No-Go nội bộ · MCP tools build → T5<br>
+          <span style="font-size:11px;color:var(--text-muted);">⚠️ Đây là checkpoint nội bộ, KHÔNG phải Demo lần 1 chính thức</span>
         </div>
         <span class="macro-status status-active">🔥 ĐANG CHẠY</span>
       </div>
       <div class="macro-phase m2">
-        <div class="macro-phase-num">Phase Go-Live MVP 1.0</div>
-        <div class="macro-phase-title">Stabilize & Launch</div>
+        <div class="macro-phase-num">Phase Demo lần 1 + Go-Live</div>
+        <div class="macro-phase-title">Stabilize · Demo · Launch</div>
         <div class="macro-phase-date">11/05 → 30/06/2026</div>
         <div class="macro-phase-milestone">
-          🟡 <strong>Team Product:</strong> Security, UAT, Training<br>
-          🔵 <strong>BI Team:</strong> Data audit + governance<br>
-          🟢 <strong>Marketing:</strong> UAT · Training · Go-live<br><br>
-          ⭐ <strong>Milestone:</strong> Go-Live (30/06) — ≥5 users active (≥1 query/tuần)
+          🟡 <strong>Team Product:</strong> MCP tools hoàn thiện T5 · Security · UAT · Training<br>
+          🔵 <strong>BI Team:</strong> Tracking dashboards · Dictionary · Data audit<br>
+          🟢 <strong>Marketing:</strong> UAT · Training · Go-live · Feedback<br>
+          🔴 <strong>Legal:</strong> UAT Security review T5–T6 · DPIA draft T6–T7 · Sign-off ≤19/06<br><br>
+          ⭐ <strong>Demo lần 1</strong> (29/05) — AI truy vấn Data Mart v1 · MCP test v1 passed<br>
+          ⭐ <strong>Go-Live MVP 1.0</strong> (30/06) — ≥5 users active · Zero P0/P1 bug
         </div>
         <span class="macro-status status-upcoming">⏳ UPCOMING</span>
       </div>
@@ -1328,16 +1333,16 @@ footer {
           <div class="stakeholder-name">Legal / Compliance Team</div>
           <div class="stakeholder-role">Data Protection & Compliance</div>
           <div class="stakeholder-desc">
-            Đảm bảo CYO tuân thủ <strong>Nghị định 13</strong> (bảo vệ dữ liệu cá nhân 2026). Cần sign-off DPIA <strong>trước T11 (26/06)</strong> để còn buffer xử lý findings. Review PII handling: không được gửi tên/SĐT lên Claude API.
+            Đảm bảo CYO tuân thủ <strong>Nghị định 13</strong> (bảo vệ dữ liệu cá nhân 2026). Cần sign-off DPIA <strong>trước T11 (26/06)</strong> để còn buffer xử lý findings. Review PII handling: không được gửi tên/SĐT lên Claude API. <strong>Tham gia từ T1</strong> để brief PII scope & data handling policy ngay từ đầu.
           </div>
           <div class="sh-kpi-row">
             <div class="sh-kpi-item">
               <span class="kpi-label kl-leg">Kỳ vọng</span>
-              DPIA signed trước T11 · PII framework reviewed · Go-live compliance cleared
+              Tham gia từ T1 (Kick-off brief) · PII scope confirmed T2 · PII filter design reviewed T4 · DPIA signed trước T11 · Go-live compliance cleared
             </div>
             <div class="sh-kpi-item">
               <span class="kpi-label kl-leg">Touchpoints</span>
-              T5–T6 (Security review) · T10 (DPIA sign-off ⚠️ latest) · T12 (Go-live approval)
+              T1 (Kick-off · I) · T2 (PII scope brief · C) · T4 (Review PII filter design · C) · T5–T6 (Security review) · T10 (DPIA sign-off ⚠️ latest) · T12 (Go-live approval)
             </div>
           </div>
           <span class="stakeholder-tag tag-support">⚖️ Compliance</span>
@@ -1375,10 +1380,20 @@ footer {
                 <td style="text-align:center;padding:9px 12px;"><span style="color:var(--blue);">I</span></td>
                 <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
                 <td style="text-align:center;padding:9px 12px;"><span style="color:var(--accent);">I</span></td>
-                <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
+                <td style="text-align:center;padding:9px 12px;"><span style="color:var(--red);">I</span></td>
               </tr>
 
               <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
+                <td style="padding:9px 14px;font-weight:500;">PII Scope Brief · Data Handling Policy</td>
+                <td style="padding:9px 12px;font-family:var(--mono);font-size:10px;color:var(--text-muted);">P1</td>
+                <td style="text-align:center;padding:9px 12px;"><span style="color:var(--purple);">A</span></td>
+                <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
+                <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
+                <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
+                <td style="text-align:center;padding:9px 12px;"><span style="color:var(--red);font-weight:700;">R/C</span></td>
+              </tr>
+
+              <tr style="border-bottom:1px solid var(--border);">
                 <td style="padding:9px 14px;font-weight:500;">BQ Access · Schema Audit</td>
                 <td style="padding:9px 12px;font-family:var(--mono);font-size:10px;color:var(--text-muted);">P1</td>
                 <td style="text-align:center;padding:9px 12px;"><span style="color:var(--purple);">A</span></td>
@@ -1388,7 +1403,7 @@ footer {
                 <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
               </tr>
 
-              <tr style="border-bottom:1px solid var(--border);">
+              <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
                 <td style="padding:9px 14px;font-weight:500;">User Interviews · Pain-point Map</td>
                 <td style="padding:9px 12px;font-family:var(--mono);font-size:10px;color:var(--text-muted);">P1</td>
                 <td style="text-align:center;padding:9px 12px;"><span style="color:var(--purple);">A</span></td>
@@ -1481,7 +1496,7 @@ footer {
                 <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
                 <td style="text-align:center;padding:9px 12px;"><span style="color:var(--green);font-weight:700;">R</span></td>
                 <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
-                <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
+                <td style="text-align:center;padding:9px 12px;"><span style="color:var(--red);">C</span></td>
               </tr>
 
               <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
@@ -1504,7 +1519,7 @@ footer {
                 <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
                 <td style="text-align:center;padding:9px 12px;"><span style="color:var(--green);font-weight:700;">R</span></td>
                 <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
-                <td style="text-align:center;padding:9px 12px;color:var(--text-muted);">—</td>
+                <td style="text-align:center;padding:9px 12px;"><span style="color:var(--red);">C</span></td>
               </tr>
 
               <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
@@ -1644,7 +1659,7 @@ footer {
         <div style="width:10px;height:10px;border-radius:50%;background:var(--accent);flex-shrink:0;"></div> Marketing — user input, UAT, go-live
       </div>
       <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-muted);">
-        <div style="width:10px;height:10px;border-radius:50%;background:var(--red);flex-shrink:0;"></div> Legal — DPIA, compliance
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--red);flex-shrink:0;"></div> Legal — PII Review (từ T1) · DPIA · Compliance sign-off
       </div>
     </div>
 
@@ -1656,9 +1671,9 @@ footer {
         <span style="font-family:var(--mono);font-size:11px;color:var(--text-muted);">T1–T2 · 14/04→24/04 · 9 ngày</span>
       </div>
       <div style="padding:14px 20px;border-bottom:1px solid var(--border);font-size:14px;font-weight:600;color:var(--accent);">
-        Hiểu đủ để build đúng — BI Team phỏng vấn lấy pain-point, audit data; PO điều phối
+        Hiểu đủ để build đúng — BI Team phỏng vấn lấy pain-point, audit data; PO điều phối; <span style="color:var(--red);">Legal brief PII scope ngay từ đầu</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);">
         <div style="padding:14px 16px;border-right:1px solid var(--border);">
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;">⬡ PO</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--purple);margin-bottom:5px;line-height:1.5;">Tổ chức Kick-off · RACI</div>
@@ -1679,11 +1694,19 @@ footer {
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">◈ Developer Team</div>
           <div style="font-size:12px;color:var(--text-muted);font-style:italic;padding:4px 0 4px 10px;border-left:2px dashed var(--border);margin-bottom:5px;line-height:1.5;">Chờ BQ access từ BI Team</div>
           <div style="font-size:12px;color:var(--text-muted);font-style:italic;padding:4px 0 4px 10px;border-left:2px dashed var(--border);margin-bottom:5px;line-height:1.5;">Chờ Pain-point Map</div>
+          <div style="font-size:12px;color:var(--text-muted);font-style:italic;padding:4px 0 4px 10px;border-left:2px dashed var(--border);margin-bottom:5px;line-height:1.5;">Setup EC2 · ES · Graphiti infra</div>
         </div>
-        <div style="padding:14px 16px;">
+        <div style="padding:14px 16px;border-right:1px solid var(--border);">
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">◇ Marketing</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--accent);margin-bottom:5px;line-height:1.5;">Tham dự Kick-off</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--accent);margin-bottom:5px;line-height:1.5;">Tham gia interviews (1–2h/người)</div>
+        </div>
+        <div style="padding:14px 16px;">
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">⚖ Legal · Từ T1</div>
+          <div style="font-size:12px;font-weight:600;color:var(--red);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Tham dự Kick-off (Informed)</div>
+          <div style="font-size:12px;font-weight:600;color:var(--red);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Brief PII scope · Nghị định 13</div>
+          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Output: PII checklist → Developer</div>
+          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Due: 24/04 ⚖️</div>
         </div>
       </div>
       <div style="padding:12px 20px;background:var(--surface-2);border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
@@ -1693,14 +1716,17 @@ footer {
         <span style="font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px 10px;color:var(--text-muted);">DAX measures</span>
         <span style="font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-left:8px;flex-shrink:0;">PO delivers</span>
         <span style="font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px 10px;color:var(--text-muted);">Sprint Board · Epics</span>
+        <span style="font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-left:8px;flex-shrink:0;">Legal delivers</span>
+        <span style="font-size:11px;font-weight:600;background:rgba(248,113,113,0.12);border:1px solid rgba(248,113,113,0.4);border-radius:20px;padding:3px 10px;color:var(--red);">PII Checklist → Developer (24/04)</span>
       </div>
     </div>
 
     <!-- BLOCKER -->
     <div class="fade-in" style="margin:4px 0;padding:10px 18px;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.25);border-radius:10px;display:flex;align-items:center;gap:10px;font-size:12px;">
       <span style="font-size:16px;flex-shrink:0;">⛔</span>
-      <span style="color:var(--red);font-weight:600;">Blocker: BI Team phải deliver Data Mart trước 04/05</span>
+      <span style="color:var(--red);font-weight:600;">Blocker 1: BI Team phải deliver Data Mart trước 04/05</span>
       <span style="color:var(--text-muted);">→ Developer Team không thể build AI Agents nếu chưa có mart tables</span>
+      <span style="color:var(--text-muted);margin-left:12px;padding-left:12px;border-left:1px solid rgba(248,113,113,0.3);">⚖ Blocker 2: Legal phải deliver PII checklist trước 24/04 → Developer build PII filter đúng spec</span>
     </div>
 
     <!-- PHASE 2a -->
@@ -1711,9 +1737,9 @@ footer {
         <span style="font-family:var(--mono);font-size:11px;color:var(--text-muted);">T2–T3 song song · 21/04→07/05</span>
       </div>
       <div style="padding:14px 20px;border-bottom:1px solid var(--border);font-size:14px;font-weight:600;color:var(--blue);">
-        BI Team build 3 mart tables sạch chuẩn — nguyên liệu bắt buộc để Developer Team build AI Agents
+        BI Team build 3 mart tables sạch chuẩn — nguyên liệu bắt buộc để Developer Team build AI Agents; <span style="color:var(--red);">Legal review Dictionary & Governance Policy</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);">
         <div style="padding:14px 16px;border-right:1px solid var(--border);">
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;">⬡ PO</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--purple);margin-bottom:5px;line-height:1.5;">Theo dõi tiến độ Data Mart</div>
@@ -1738,9 +1764,16 @@ footer {
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Setup Graphiti + Neo4j</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Build API ingest Meta·TikTok·Zalo→S3</div>
         </div>
-        <div style="padding:14px 16px;">
+        <div style="padding:14px 16px;border-right:1px solid var(--border);">
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">◇ Marketing</div>
           <div style="font-size:12px;color:var(--text-muted);font-style:italic;padding:4px 0 4px 10px;border-left:2px dashed var(--border);line-height:1.5;">Không có task. Chờ Demo.</div>
+        </div>
+        <div style="padding:14px 16px;">
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">⚖ Legal · Consulted</div>
+          <div style="font-size:12px;font-weight:600;color:var(--red);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Review Data Dictionary v1.0</div>
+          <div style="font-size:12px;font-weight:600;color:var(--red);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Review Governance Policy v1.0</div>
+          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Xác nhận PII fields cần mask trong mart tables</div>
+          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Due: 07/05 ⚖️</div>
         </div>
       </div>
       <div style="padding:12px 20px;background:var(--surface-2);border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
@@ -1750,6 +1783,8 @@ footer {
         <span style="font-size:11px;font-weight:600;background:rgba(248,113,113,0.12);border:1px solid rgba(248,113,113,0.4);border-radius:20px;padding:3px 10px;color:var(--red);">mart_product_affinity</span>
         <span style="font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px 10px;color:var(--text-muted);">Data Dictionary v1.0</span>
         <span style="font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px 10px;color:var(--text-muted);">Governance Policy v1.0</span>
+        <span style="font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-left:8px;flex-shrink:0;">Legal must deliver</span>
+        <span style="font-size:11px;font-weight:600;background:rgba(248,113,113,0.12);border:1px solid rgba(248,113,113,0.4);border-radius:20px;padding:3px 10px;color:var(--red);">PII Fields Mask List (≤07/05)</span>
       </div>
     </div>
 
@@ -1768,12 +1803,12 @@ footer {
       <div style="display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--border);background:rgba(52,211,153,0.04);">
         <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 12px;border-radius:20px;background:var(--green-dim);color:var(--green);flex-shrink:0;">Phase 2b · Developer Team owns</span>
         <span style="font-size:15px;font-weight:700;flex:1;">Build Pipeline + AI Agents + Demo</span>
-        <span style="font-family:var(--mono);font-size:11px;color:var(--text-muted);">T4 · 04/05→08/05 · 5 ngày ⚠️</span>
+        <span style="font-family:var(--mono);font-size:11px;color:var(--text-muted);">T4 · 04/05→08/05 · 5 ngày (Demo focus)</span>
       </div>
       <div style="padding:14px 20px;border-bottom:1px solid var(--border);font-size:14px;font-weight:600;color:var(--green);">
-        Chứng minh hệ thống chạy end-to-end — AI đọc mart, sinh insight, Marketing nói "Go"
+        Chứng minh pipeline chạy end-to-end — AI đọc mart, sinh insight, Marketing nói "Go" · <span style="color:var(--text-muted);font-weight:400;font-size:12px;">MCP tools build chuyển sang T5 (MCP test v1 tại 29/05)</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);">
         <div style="padding:14px 16px;border-right:1px solid var(--border);">
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;">⬡ PO</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--purple);margin-bottom:5px;line-height:1.5;">Review AI outputs · quality check</div>
@@ -1787,18 +1822,24 @@ footer {
           <div style="font-size:12px;color:var(--text-muted);font-style:italic;padding:4px 0 4px 10px;border-left:2px dashed var(--border);margin-bottom:5px;line-height:1.5;">Standby fix dbt nếu issue</div>
         </div>
         <div style="padding:14px 16px;border-right:1px solid var(--border);">
-          <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">◈ Developer · Owns</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">◈ Developer · Owns (Demo focus)</div>
           <div style="font-size:12px;font-weight:600;color:var(--green);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Sync mart → ES (6M docs bulk index)</div>
           <div style="font-size:12px;font-weight:600;color:var(--green);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Sync mart → Graphiti Knowledge Graph</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Build DataAnalyst Agent (Sonnet)</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Build InsightGen Agent (Opus)</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Build QualityCheck Agent (Haiku)</div>
-          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Build 8 MCP tools + PII filter</div>
+          <div style="font-size:12px;color:var(--text-muted);font-style:italic;padding:4px 0 4px 10px;border-left:2px dashed var(--accent);margin-bottom:5px;line-height:1.5;">⏩ MCP tools (8 tools + PII filter) → hoàn thành T5 (≤15/05)</div>
         </div>
-        <div style="padding:14px 16px;">
+        <div style="padding:14px 16px;border-right:1px solid var(--border);">
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">◇ Marketing</div>
           <div style="font-size:12px;font-weight:600;color:var(--accent);padding:4px 0 4px 10px;border-left:2px solid var(--accent);margin-bottom:5px;line-height:1.5;">Tham dự Demo 08/05 (2h)</div>
           <div style="font-size:12px;font-weight:600;color:var(--accent);padding:4px 0 4px 10px;border-left:2px solid var(--accent);margin-bottom:5px;line-height:1.5;">Cho verdict Go / No-Go</div>
+        </div>
+        <div style="padding:14px 16px;">
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">⚖ Legal · Consulted</div>
+          <div style="font-size:12px;font-weight:600;color:var(--red);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Review PII filter design spec</div>
+          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Confirm: không có PII field nào lọt qua filter trước Demo</div>
+          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Due: 07/05 ⚖️</div>
         </div>
       </div>
       <div style="padding:12px 20px;background:var(--surface-2);border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
@@ -1806,6 +1847,8 @@ footer {
         <span style="font-size:11px;font-weight:600;background:rgba(52,211,153,0.15);border:1px solid rgba(52,211,153,0.4);border-radius:20px;padding:3px 10px;color:var(--green);">✓ Verdict "Go" · 08/05</span>
         <span style="font-size:11px;font-weight:600;background:rgba(52,211,153,0.15);border:1px solid rgba(52,211,153,0.4);border-radius:20px;padding:3px 10px;color:var(--green);">AI Pipeline end-to-end</span>
         <span style="font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px 10px;color:var(--text-muted);">Metric Catalog v1.0 · validated</span>
+        <span style="font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px 10px;color:var(--text-muted);">PII filter reviewed · Legal OK</span>
+        <span style="font-size:11px;font-style:italic;background:rgba(255,169,8,0.08);border:1px solid rgba(255,169,8,0.2);border-radius:20px;padding:3px 10px;color:var(--accent);">MCP tools → carry over T5</span>
       </div>
     </div>
 
@@ -1814,7 +1857,7 @@ footer {
       <div style="flex:1;height:1px;background:var(--border);"></div>
       <div style="display:flex;flex-direction:column;align-items:center;padding:4px 16px;gap:2px;">
         <div style="color:var(--text-muted);font-size:13px;line-height:1;">↓</div>
-        <div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);white-space:nowrap;">"Go" → Phase 3 · "No-Go" → dừng toàn bộ</div>
+        <div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);white-space:nowrap;">"Go" → Phase 3 (MCP tools complete T5 + MCP test v1 T7) · "No-Go" → dừng toàn bộ</div>
       </div>
       <div style="flex:1;height:1px;background:var(--border);"></div>
     </div>
@@ -1827,7 +1870,7 @@ footer {
         <span style="font-family:var(--mono);font-size:11px;color:var(--text-muted);">T5–T7 · 11/05→29/05 · 15 ngày</span>
       </div>
       <div style="padding:14px 20px;border-bottom:1px solid var(--border);font-size:14px;font-weight:600;color:var(--purple);">
-        Đủ an toàn để đưa người dùng thật vào — security cleared, UAT sẵn sàng, Legal bắt đầu DPIA
+        Đủ an toàn để đưa người dùng thật vào — security cleared, UAT sẵn sàng, Legal bắt đầu DPIA · ⭐ MCP test v1 cuối T7 (29/05)
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);">
         <div style="padding:14px 16px;border-right:1px solid var(--border);">
@@ -1849,11 +1892,14 @@ footer {
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Security: Keycloak · RBAC · PII · WAF</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Approval integration test</div>
           <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--green);margin-bottom:5px;line-height:1.5;">Dashboard UX review + fix</div>
+          <div style="font-size:12px;font-weight:600;color:var(--accent);padding:4px 0 4px 10px;border-left:2px solid var(--accent);margin-bottom:5px;line-height:1.5;">⭐ MCP test v1 · AI query Data Mart (T7 · 29/05)</div>
         </div>
         <div style="padding:14px 16px;">
-          <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">⚖ Legal</div>
-          <div style="font-size:12px;font-weight:600;color:var(--red);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Bắt đầu DPIA review (T5–T6)</div>
-          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Review PII handling framework</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">⚖ Legal · Tiếp nối từ T1</div>
+          <div style="font-size:12px;font-weight:600;color:var(--red);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Bắt đầu DPIA review chính thức (T5)</div>
+          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Dựa trên PII checklist đã có từ T1 → tăng tốc DPIA</div>
+          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Review PII filter implementation (sau MCP tools complete T5)</div>
+          <div style="font-size:12px;color:var(--text-muted);padding:4px 0 4px 10px;border-left:2px solid var(--red);margin-bottom:5px;line-height:1.5;">Chuẩn bị DPIA draft → gửi T6</div>
         </div>
       </div>
       <div style="padding:12px 20px;background:var(--surface-2);border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
@@ -1861,7 +1907,9 @@ footer {
         <span style="font-size:11px;font-weight:600;background:rgba(248,113,113,0.12);border:1px solid rgba(248,113,113,0.4);border-radius:20px;padding:3px 10px;color:var(--red);">UAT Scenarios ≥20</span>
         <span style="font-size:11px;font-weight:600;background:rgba(248,113,113,0.12);border:1px solid rgba(248,113,113,0.4);border-radius:20px;padding:3px 10px;color:var(--red);">Security sign-off</span>
         <span style="font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px 10px;color:var(--text-muted);">Dictionary v1.1</span>
-        <span style="font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px 10px;color:var(--text-muted);">DPIA draft → Legal</span>
+        <span style="font-size:11px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px 10px;color:var(--text-muted);">DPIA draft (Legal T6)</span>
+        <span style="font-size:11px;font-weight:600;background:rgba(52,211,153,0.15);border:1px solid rgba(52,211,153,0.4);border-radius:20px;padding:3px 10px;color:var(--green);">MCP tools complete (T5)</span>
+        <span style="font-size:11px;font-weight:600;background:rgba(255,169,8,0.12);border:1px solid rgba(255,169,8,0.4);border-radius:20px;padding:3px 10px;color:var(--accent);">⭐ MCP test v1 · 29/05</span>
       </div>
     </div>
 
@@ -1870,7 +1918,7 @@ footer {
       <div style="flex:1;height:1px;background:var(--border);"></div>
       <div style="display:flex;flex-direction:column;align-items:center;padding:4px 16px;gap:2px;">
         <div style="color:var(--text-muted);font-size:13px;line-height:1;">↓</div>
-        <div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);white-space:nowrap;">UAT Scenarios + Security → Marketing chạy UAT được</div>
+        <div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);white-space:nowrap;">UAT Scenarios + Security + MCP test v1 passed → Marketing chạy UAT · Legal tiếp tục DPIA sign-off</div>
       </div>
       <div style="flex:1;height:1px;background:var(--border);"></div>
     </div>
@@ -2318,18 +2366,19 @@ footer {
           team: 'PO', color: C.po,
           tasks: [
             { name:'Kick-off · RACI draft', w:1,w2:1, team:'PO', color:C.po },
-            { name:'Setup Sprint board · Epics', w:1,w2:2, team:'PO', color:C.po },
-            { name:'Điều phối interviews', w:1,w2:2, team:'PO', color:C.po },
+            { name:'Đọc SRD 10 Features · vẽ data flow', w:1,w2:1, team:'PO', color:C.po },
+            { name:'Phỏng vấn Mkt Exec + Lead', w:1,w2:2, team:'PO', color:C.po },
+            { name:'Setup Sprint board · Epics', w:2,w2:2, team:'PO', color:C.po },
+            { name:'Pain-point Map v1.0', w:2,w2:2, team:'PO', color:C.po },
           ]
         },
         {
           team: 'BI Team', color: C.bi,
           tasks: [
-            { name:'🔴 BQ access ≤17/04', w:1,w2:1, team:'BI', color:C.blocker, style:'critical' },
-            { name:'Audit BQ schema · tables', w:1,w2:2, team:'BI', color:C.bi },
-            { name:'Interview Mkt Exec ×2', w:1,w2:1, team:'BI', color:C.bi },
-            { name:'Interview Mkt Lead', w:2,w2:2, team:'BI', color:C.bi },
-            { name:'Pain-point Map v1.0', w:2,w2:2, team:'BI', color:C.bi },
+            { name:'🔴 BQ access · audit schema ≤17/04', w:1,w2:1, team:'BI', color:C.blocker, style:'critical' },
+            { name:'Audit BQ metadata · tables', w:1,w2:2, team:'BI', color:C.bi },
+            { name:'Support interviews (Mkt Exec + Lead)', w:1,w2:2, team:'BI', color:C.bi },
+            { name:'Thu thập API credentials (Meta·TikTok·Zalo)', w:2,w2:2, team:'BI', color:C.bi },
           ]
         },
         {
@@ -2343,6 +2392,13 @@ footer {
           tasks: [
             { name:'Tham dự Kick-off', w:1,w2:1, team:'Mkt', color:C.mkt },
             { name:'Tham gia interviews', w:1,w2:2, team:'Mkt', color:C.mkt },
+          ]
+        },
+        {
+          team: 'Legal', color: C.legal,
+          tasks: [
+            { name:'⚖ Kick-off (I) · PII scope brief', w:1,w2:1, team:'Legal', color:C.legal },
+            { name:'⚖ PII checklist → Developer (≤24/04)', w:2,w2:2, team:'Legal', color:C.legal, style:'critical' },
           ]
         },
       ]
@@ -2385,6 +2441,13 @@ footer {
             { name:'— Không có task —', w:2,w2:4, team:'Mkt', color:C.mkt, style:'waiting' },
           ]
         },
+        {
+          team: 'Legal', color: C.legal,
+          tasks: [
+            { name:'⚖ Review Data Dictionary v1.0', w:4,w2:4, team:'Legal', color:C.legal },
+            { name:'⚖ Review Governance Policy · PII fields mask list', w:4,w2:4, team:'Legal', color:C.legal, style:'critical' },
+          ]
+        },
       ]
     },
     {
@@ -2397,6 +2460,7 @@ footer {
           team: 'PO', color: C.po,
           tasks: [
             { name:'Review AI outputs · Demo script', w:4,w2:4, team:'PO', color:C.po },
+            { name:'Sprint 3–4 Planning + Report #1–2', w:4,w2:4, team:'PO', color:C.po },
           ]
         },
         {
@@ -2410,7 +2474,7 @@ footer {
           tasks: [
             { name:'Sync mart→ES (6M docs) + Graphiti', w:4,w2:4, team:'Dev', color:C.dev, style:'critical' },
             { name:'Build DA · InsightGen · QC Agents', w:4,w2:4, team:'Dev', color:C.dev },
-            { name:'Build 8 MCP tools + PII filter', w:4,w2:4, team:'Dev', color:C.dev },
+            { name:'Build 8 MCP tools + PII filter (→T5)', w:4,w2:5, team:'Dev', color:C.dev },
             { name:'⭐ Demo v0.15 · Go/No-Go', w:4,w2:4, team:'Dev+Mkt', color:C.milestone, style:'milestone' },
           ]
         },
@@ -2420,11 +2484,17 @@ footer {
             { name:'Tham dự Demo 08/05 · Verdict', w:4,w2:4, team:'Mkt', color:C.mkt, style:'critical' },
           ]
         },
+        {
+          team: 'Legal', color: C.legal,
+          tasks: [
+            { name:'⚖ Review PII filter design · C', w:4,w2:4, team:'Legal', color:C.legal },
+          ]
+        },
       ]
     },
     {
       label: 'P3 · Stabilize & Governance',
-      goal:  'Đủ an toàn để đưa người dùng thật vào',
+      goal:  'Đủ an toàn để đưa người dùng thật vào — ⭐ MCP test v1 cuối T7 (29/05)',
       color: C.po,
       weeks: [5,7],
       swimlanes: [
@@ -2438,22 +2508,38 @@ footer {
         {
           team: 'BI Team', color: C.bi,
           tasks: [
-            { name:'Dictionary v1.1: approval+insight', w:6,w2:6, team:'BI', color:C.bi },
-            { name:'Metrics dashboards + change log', w:6,w2:7, team:'BI', color:C.bi },
+            { name:'Setup tracking · metrics dashboards', w:5,w2:6, team:'BI', color:C.bi },
+            { name:'Dictionary v1.1: approval+insight schema', w:6,w2:6, team:'BI', color:C.bi },
+            { name:'Change log operational + access audit', w:7,w2:7, team:'BI', color:C.bi },
           ]
         },
         {
           team: 'Developer', color: C.dev,
           tasks: [
+            { name:'Complete MCP tools (carry from T4)', w:5,w2:5, team:'Dev', color:C.dev, style:'critical' },
             { name:'Verify Cowork MCP SSE + OAuth', w:5,w2:5, team:'Dev', color:C.dev },
-            { name:'≥20 UAT scenarios + Security', w:5,w2:6, team:'Dev', color:C.dev },
-            { name:'Approval test · Dashboard UX', w:7,w2:7, team:'Dev', color:C.dev },
+            { name:'≥20 UAT scenarios + Security sign-off', w:5,w2:6, team:'Dev', color:C.dev },
+            { name:'Approval integration test', w:6,w2:7, team:'Dev', color:C.dev },
+          ]
+        },
+        {
+          team: 'Marketing', color: C.mkt,
+          tasks: [
+            { name:'Post-demo feedback · Pain-point v1.1', w:5,w2:5, team:'Mkt', color:C.mkt },
+            { name:'Dashboard UX review · feedback', w:6,w2:7, team:'Mkt', color:C.mkt },
           ]
         },
         {
           team: 'Legal', color: C.legal,
           tasks: [
-            { name:'⚖ DPIA review bắt đầu', w:5,w2:6, team:'Legal', color:C.legal },
+            { name:'⚖ UAT Security review · PII verify (C)', w:5,w2:6, team:'Legal', color:C.legal },
+            { name:'⚖ DPIA draft bắt đầu', w:6,w2:7, team:'Legal', color:C.legal },
+          ]
+        },
+        {
+          team: 'Milestone', color: C.milestone,
+          tasks: [
+            { name:'⭐ MCP test v1 · AI query Data Mart', w:7,w2:7, team:'All', color:C.milestone, style:'milestone' },
           ]
         },
       ]
@@ -2500,9 +2586,10 @@ footer {
   ];
 
   const milestones = [
-    { week:4, label:'★ Demo', color:C.milestone },
-    { week:10, label:'DPIA', color:C.legal },
-    { week:12, label:'★ Go-Live', color:C.milestone },
+    { week:4,  label:'★ Demo',     color:C.milestone },
+    { week:7,  label:'★ MCP v1',   color:C.milestone },
+    { week:10, label:'DPIA ✓',     color:C.legal },
+    { week:12, label:'★ Go-Live',  color:C.milestone },
   ];
 
   const totalWeeks = 12;
@@ -2628,7 +2715,7 @@ footer {
     { label:'BI Team', color:C.bi, note:'Data + Mart' },
     { label:'Developer', color:C.dev, note:'Pipeline + Agents' },
     { label:'Marketing', color:C.mkt, note:'Input + UAT' },
-    { label:'Legal', color:C.legal, note:'DPIA' },
+    { label:'Legal', color:C.legal, note:'PII Review + DPIA' },
     { label:'Milestone', color:C.milestone, note:'Demo · Go-Live' },
     { label:'Critical/Blocker', color:C.blocker, note:'Hard dependency' },
   ];
@@ -2926,15 +3013,16 @@ footer {
         <div class="phase-desc">Hiểu user, hiểu data, setup công cụ. BI Team phải cấp BQ access trong tuần này — critical path của toàn dự án.</div>
         <div class="task-list">
 
+          <!-- ── Due: 17/04 ── -->
           <div class="task-row">
             <div class="task-content">
-              <div class="task-title">Tham dự <span class="kw">Kick-off</span> + RACI draft</div>
-              <div class="task-detail">Meeting notes, action items, align stakeholders. Thống nhất scope MVP 0.15 với tất cả các bên.</div>
+              <div class="task-title">Tham dự <span class="kw">Kick-off nội bộ</span> + RACI draft</div>
+              <div class="task-detail">Kick-off nội bộ (PO + BI + Infra + Legal) 14/04. Thống nhất scope MVP 0.15, data flow, budget infra. <strong>Lưu ý:</strong> Kick-off chính thức với Marketing bị hoãn 1 tuần (→ T2 · ~24/04) để chuẩn bị kỹ hơn về budget, Use Case trực quan theo Recap họp 16/04.</div>
             </div>
             <div class="task-owners">
               <span class="owner-tag ow-po">Team Product</span>
               <span class="owner-tag ow-bi">BI Team</span>
-              <span class="owner-tag ow-mkt">Marketing</span>
+              <span class="owner-tag ow-legal">Legal</span>
             </div>
             <div class="task-dates">14–15/04<br><span class="due">Due: 17/04</span></div>
           </div>
@@ -2960,6 +3048,7 @@ footer {
             <div class="task-dates">14–16/04<br><span class="due">Due: 17/04</span></div>
           </div>
 
+          <!-- ── Due: 21/04 ── -->
           <div class="task-row" style="border-color: var(--red);">
             <div class="task-content">
               <div class="task-title">⚠️ Coordinate <span class="kw">BQ access</span> + bắt đầu audit metadata</div>
@@ -2994,16 +3083,30 @@ footer {
             <div class="task-dates">17–21/04<br><span class="due">Due: 21/04</span></div>
           </div>
 
+          <!-- ── Due: 24/04 ── -->
           <div class="task-row">
             <div class="task-content">
-              <div class="task-title">Tổng hợp <span class="kw">Pain-point Map</span> v1.0</div>
-              <div class="task-detail">Vấn đề → Ai bị ảnh hưởng → Tần suất → Mức nghiêm trọng → CYO feature giải quyết. Sign-off với Marketing Lead.</div>
+              <div class="task-title">Kick-off chính thức với <span class="kw">Marketing</span> — Use Cases + Budget</div>
+              <div class="task-detail">Hoãn từ T1 (17/04) sang T2 (~24/04) theo Recap 16/04 — cần chuẩn bị kỹ hơn: budget infra, Use Case trực quan, Tech stack rõ ràng để Marketing dễ hiểu. PO book lịch với Bình + Thắng để brainstorm data flow trước.</div>
             </div>
             <div class="task-owners">
               <span class="owner-tag ow-po">Team Product</span>
               <span class="owner-tag ow-mkt">Marketing</span>
+              <span class="owner-tag ow-bi">BI Team</span>
             </div>
             <div class="task-dates">22–24/04<br><span class="due">Due: 24/04</span></div>
+          </div>
+
+          <div class="task-row" style="border-color: var(--red);">
+            <div class="task-content">
+              <div class="task-title">⚖️ <span class="kw-purple">PII Scope Brief</span> + Data Handling Policy v0.1</div>
+              <div class="task-detail">Legal team brief về Nghị định 13: xác định rõ PII fields nào trong BQ cần mask, rule nào phải enforce trước khi build PII filter. Output: checklist PII requirements gửi cho Developer. <strong>Cần xong trước T4 để Developer build PII filter đúng spec.</strong></div>
+            </div>
+            <div class="task-owners">
+              <span class="owner-tag ow-legal">Legal</span>
+              <span class="owner-tag ow-po">Team Product</span>
+            </div>
+            <div class="task-dates">17–24/04<br><span class="due" style="color:var(--red);">Due: 24/04 ⚖️</span></div>
           </div>
 
           <div class="task-row">
@@ -3016,6 +3119,18 @@ footer {
               <span class="owner-tag ow-bi">BI Team</span>
             </div>
             <div class="task-dates">17–24/04<br><span class="due">Due: 24/04</span></div>
+          </div>
+
+          <div class="task-row">
+            <div class="task-content">
+              <div class="task-title">Tổng hợp <span class="kw">Pain-point Map</span> v1.0</div>
+              <div class="task-detail">Vấn đề → Ai bị ảnh hưởng → Tần suất → Mức nghiêm trọng → CYO feature giải quyết. Sign-off với Marketing Lead.</div>
+            </div>
+            <div class="task-owners">
+              <span class="owner-tag ow-po">Team Product</span>
+              <span class="owner-tag ow-mkt">Marketing</span>
+            </div>
+            <div class="task-dates">22–24/04<br><span class="due">Due: 24/04</span></div>
           </div>
 
         </div>
@@ -3045,8 +3160,21 @@ footer {
           <div class="phase-title">MVP Build & Metrics</div>
           <div class="phase-dates">Tuần 4 · 04/05 → 08/05 · 5 ngày làm việc (rút ngắn do T3=0)</div>
         </div>
-        <div class="phase-desc">⚠️ Chỉ có 5 ngày làm việc sau kỳ nghỉ lễ. Pipeline phải được validate, metrics xong và Demo sẵn sàng đúng 08/05. Đây là tuần căng nhất.</div>
+        <div class="phase-desc">⚠️ Chỉ có 5 ngày làm việc sau kỳ nghỉ lễ. Mục tiêu tuần này: validate pipeline end-to-end, hoàn thiện Metric Catalog và thực hiện <strong>Internal Pipeline Demo (08/05)</strong> — checkpoint Go/No-Go nội bộ để xác nhận hệ thống chạy được. <strong>Demo lần 1 chính thức</strong> (AI truy vấn Data Mart v1 · MCP test v1) được tổ chức cuối T7 (29/05) theo Recap họp 16/04.</div>
         <div class="task-list">
+
+          <!-- ── Due: 07/05 ── -->
+          <div class="task-row">
+            <div class="task-content">
+              <div class="task-title">Validate <span class="kw-blue">pipeline</span> + data quality spot-check</div>
+              <div class="task-detail">BQ → dbt → ES → Graphiti. Spot-check 50 customers. BI Team support validate dbt models.</div>
+            </div>
+            <div class="task-owners">
+              <span class="owner-tag ow-core">Infra</span>
+              <span class="owner-tag ow-bi">BI Team</span>
+            </div>
+            <div class="task-dates">04–06/05<br><span class="due">Due: 07/05</span></div>
+          </div>
 
           <div class="task-row">
             <div class="task-content">
@@ -3060,6 +3188,19 @@ footer {
             <div class="task-dates">04–07/05<br><span class="due">Due: 07/05</span></div>
           </div>
 
+          <div class="task-row">
+            <div class="task-content">
+              <div class="task-title">Test cases <span class="kw-blue">InsightGen</span> + review <span class="kw-blue">AI outputs</span></div>
+              <div class="task-detail">≥ 10 test cases, 4 insight types, hallucination check, prompt tuning. Team Product review quality trực tiếp.</div>
+            </div>
+            <div class="task-owners">
+              <span class="owner-tag ow-po">Team Product</span>
+              <span class="owner-tag ow-core">Infra</span>
+            </div>
+            <div class="task-dates">04–07/05<br><span class="due">Due: 07/05</span></div>
+          </div>
+
+          <!-- ── Due: 08/05 ── -->
           <div class="task-row">
             <div class="task-content">
               <div class="task-title"><span class="kw-purple">Data Dictionary</span> v1.0 — mart tables</div>
@@ -3083,32 +3224,17 @@ footer {
 
           <div class="task-row">
             <div class="task-content">
-              <div class="task-title">Validate <span class="kw-blue">pipeline</span> + data quality spot-check</div>
-              <div class="task-detail">BQ → dbt → ES → Graphiti. Spot-check 50 customers. BI Team support validate dbt models.</div>
+              <div class="task-title">Sprint 3–4 Planning + <span class="kw">Weekly Report</span> #1–2</div>
+              <div class="task-detail">Planning Thứ Hai 04/05. Report Thứ Sáu 08/05 17:00. Cập nhật trạng thái cho stakeholders.</div>
             </div>
-            <div class="task-owners">
-              <span class="owner-tag ow-core">Infra</span>
-              <span class="owner-tag ow-bi">BI Team</span>
-            </div>
-            <div class="task-dates">04–06/05<br><span class="due">Due: 07/05</span></div>
-          </div>
-
-          <div class="task-row">
-            <div class="task-content">
-              <div class="task-title">Test cases <span class="kw-blue">InsightGen</span> + review <span class="kw-blue">AI outputs</span></div>
-              <div class="task-detail">≥ 10 test cases, 4 insight types, hallucination check, prompt tuning. Team Product review quality trực tiếp.</div>
-            </div>
-            <div class="task-owners">
-              <span class="owner-tag ow-po">Team Product</span>
-              <span class="owner-tag ow-core">Infra</span>
-            </div>
-            <div class="task-dates">04–07/05<br><span class="due">Due: 07/05</span></div>
+            <div class="task-owners"><span class="owner-tag ow-po">Team Product</span></div>
+            <div class="task-dates">04/05, 08/05<br><span class="due">Due: 08/05</span></div>
           </div>
 
           <div class="task-row" style="border-color: var(--accent);">
             <div class="task-content">
-              <div class="task-title">⭐ <span class="kw">MCP</span> test + <span class="kw">Demo v0.15</span> prep & execution</div>
-              <div class="task-detail">8 MCP tools + PII filter. Demo flow: query → insight → segment → content → approve. Marketing attend demo. Go/No-Go scorecard bắt buộc.</div>
+              <div class="task-title">⭐ <span class="kw">Demo v0.15</span> prep & execution</div>
+              <div class="task-detail">End-to-end flow: query → insight → segment → content → approve. Marketing attend demo. Go/No-Go scorecard bắt buộc. <strong>Lưu ý:</strong> MCP test phase (AI truy vấn Data Mart v1) được tách riêng → dời sang cuối T7 (29/05) để có thêm thời gian ổn định sau demo.</div>
             </div>
             <div class="task-owners">
               <span class="owner-tag ow-po">Team Product</span>
@@ -3116,15 +3242,6 @@ footer {
               <span class="owner-tag ow-mkt">Marketing</span>
             </div>
             <div class="task-dates">07–08/05<br><span class="due" style="color:var(--accent);">Due: 08/05 ⭐</span></div>
-          </div>
-
-          <div class="task-row">
-            <div class="task-content">
-              <div class="task-title">Sprint 3–4 Planning + <span class="kw">Weekly Report</span> #1–2</div>
-              <div class="task-detail">Planning Thứ Hai 04/05. Report Thứ Sáu 08/05 17:00. Cập nhật trạng thái cho stakeholders.</div>
-            </div>
-            <div class="task-owners"><span class="owner-tag ow-po">Team Product</span></div>
-            <div class="task-dates">04/05, 08/05<br><span class="due">Due: 08/05</span></div>
           </div>
 
         </div>
@@ -3137,7 +3254,7 @@ footer {
           <div class="phase-title">Stabilize & Governance</div>
           <div class="phase-dates">Tuần 5–7 · 11/05 → 29/05 · 15 ngày làm việc</div>
         </div>
-        <div class="phase-desc">Post-demo validation, security sign-off (Legal), Dashboard review, vận hành governance. BI Team cập nhật Dictionary. Verify Cowork MCP + OAuth.</div>
+        <div class="phase-desc">Post-demo validation, security sign-off (Legal), Dashboard review, vận hành governance. BI Team cập nhật Dictionary. Verify Cowork MCP + OAuth. ⭐ <strong>MCP test v1 (cuối T7 · 29/05)</strong> — AI truy vấn chỉ số cơ bản, insight đơn giản từ Data Mart v1.</div>
         <div class="task-list">
 
           <div class="task-row">
@@ -3178,15 +3295,6 @@ footer {
 
           <div class="task-row">
             <div class="task-content">
-              <div class="task-title">Dictionary update — <span class="kw-purple">insight + approval schema</span></div>
-              <div class="task-detail">approval_items, approval_history, insight/segment/content schema. BI Team update sau demo feedback.</div>
-            </div>
-            <div class="task-owners"><span class="owner-tag ow-bi">BI Team</span></div>
-            <div class="task-dates">18–22/05<br><span class="due">Due: 22/05</span></div>
-          </div>
-
-          <div class="task-row">
-            <div class="task-content">
               <div class="task-title"><span class="kw-blue">UAT scenarios</span> + <span class="kw-blue">Security sign-off</span></div>
               <div class="task-detail">≥ 20 scenarios GIVEN-WHEN-THEN. Keycloak, RBAC, PII filter, WAF. Bắt đầu DPIA review cùng Legal team.</div>
             </div>
@@ -3198,6 +3306,17 @@ footer {
             <div class="task-dates">11–19/05<br><span class="due">Due: 19/05</span></div>
           </div>
 
+          <!-- ── Due: 22/05 ── -->
+          <div class="task-row">
+            <div class="task-content">
+              <div class="task-title">Dictionary update — <span class="kw-purple">insight + approval schema</span></div>
+              <div class="task-detail">approval_items, approval_history, insight/segment/content schema. BI Team update sau demo feedback.</div>
+            </div>
+            <div class="task-owners"><span class="owner-tag ow-bi">BI Team</span></div>
+            <div class="task-dates">18–22/05<br><span class="due">Due: 22/05</span></div>
+          </div>
+
+          <!-- ── Due: 29/05 ── -->
           <div class="task-row">
             <div class="task-content">
               <div class="task-title"><span class="kw-blue">Approval</span> integration test + <span class="kw-blue">Dashboard</span> review</div>
@@ -3230,6 +3349,18 @@ footer {
             </div>
             <div class="task-owners"><span class="owner-tag ow-po">Team Product</span></div>
             <div class="task-dates">11–29/05<br><span class="due">Due: 29/05</span></div>
+          </div>
+
+          <div class="task-row" style="border-color: var(--accent);">
+            <div class="task-content">
+              <div class="task-title">⭐ <span class="kw">MCP test v1</span> — AI truy vấn Data Mart v1</div>
+              <div class="task-detail">Mục tiêu: AI (Claude qua Cowork MCP) có thể truy vấn được các chỉ số cơ bản và trả về insight đơn giản từ Data Mart v1. Test ≥ 5 query types: RFM, AOV, segment count, product affinity, NPS. Dời từ 08/05 sang cuối T7 để đảm bảo Data Mart v1 ổn định và PII filter đã verified.</div>
+            </div>
+            <div class="task-owners">
+              <span class="owner-tag ow-core">Infra</span>
+              <span class="owner-tag ow-po">Team Product</span>
+            </div>
+            <div class="task-dates">27–29/05<br><span class="due" style="color:var(--accent);">Due: 29/05 ⭐</span></div>
           </div>
 
         </div>
@@ -3567,8 +3698,8 @@ function showTab(tab) {
     <div class="glossary-section-title">Product & Quy trình</div>
     <div class="glossary-item fade-in"><div><div class="glossary-term">UAT</div><div class="glossary-abbr">User Acceptance Testing</div></div><div><div class="glossary-def">Marketing team dùng thử CYO và xác nhận "OK dùng được". Bước cuối trước go-live. Team Product observe trực tiếp để catch UX issues.</div></div></div>
     <div class="glossary-item fade-in"><div><div class="glossary-term">RACI</div><div class="glossary-abbr">Responsible, Accountable, Consulted, Informed</div></div><div><div class="glossary-def">Ma trận trách nhiệm. R = làm, A = chịu trách nhiệm, C = tham khảo, I = được thông báo.</div></div></div>
-    <div class="glossary-item fade-in"><div><div class="glossary-term">DPIA</div><div class="glossary-abbr">Data Protection Impact Assessment</div></div><div><div class="glossary-def">Đánh giá tác động bảo vệ dữ liệu — bắt buộc theo Nghị định 13 khi xử lý PII quy mô lớn. Legal Team sign-off chậm nhất T10 (19/06).</div></div></div>
-    <div class="glossary-item fade-in"><div><div class="glossary-term">Critical Path</div><div class="glossary-abbr">—</div></div><div><div class="glossary-def">Chuỗi công việc phụ thuộc nhau — bất kỳ cái nào trễ = toàn bộ dự án trễ.</div><div class="glossary-example">BQ access (T1) → dbt → ES → Agents → Demo (08/05). BQ chậm 3 ngày = Demo trễ 3 ngày.</div></div></div>
+    <div class="glossary-item fade-in"><div><div class="glossary-term">DPIA</div><div class="glossary-abbr">Data Protection Impact Assessment</div></div><div><div class="glossary-def">Đánh giá tác động bảo vệ dữ liệu — bắt buộc theo Nghị định 13 khi xử lý PII quy mô lớn. Legal Team tham gia từ T1 (PII scope brief), bắt đầu DPIA chính thức T5, gửi draft T6, sign-off chậm nhất T10 (19/06). Việc tham gia sớm từ T1 giúp rút ngắn thời gian DPIA review ở T5–T6.</div></div></div>
+    <div class="glossary-item fade-in"><div><div class="glossary-term">Critical Path</div><div class="glossary-abbr">—</div></div><div><div class="glossary-def">Chuỗi công việc phụ thuộc nhau — bất kỳ cái nào trễ = toàn bộ dự án trễ.</div><div class="glossary-example">BQ access (T1) → dbt → ES → Agents → Demo (08/05) → MCP tools complete (T5 · 15/05) → MCP test v1 (29/05) → UAT (T8) → Go-Live (30/06). Nhánh song song: Legal PII checklist (T1–T2) → PII filter review (T4) → DPIA (T5–T6) → DPIA sign-off (T10 · 19/06).</div></div></div>
     <div class="glossary-item fade-in"><div><div class="glossary-term">Go/No-Go Scorecard</div><div class="glossary-abbr">—</div></div><div><div class="glossary-def">Bộ tiêu chí đo lường rõ ràng để quyết định "Go" (tiếp tục build) hay "No-Go" (dừng, reassess) sau Demo. Tránh quyết định chủ quan.</div><div class="glossary-example">4 Must Pass + 2 Should Pass. Thiếu bất kỳ Must Pass → No-Go tự động.</div></div></div>
   </div>
 </section>
